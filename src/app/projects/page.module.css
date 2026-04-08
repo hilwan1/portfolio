@@ -1,0 +1,333 @@
+/* ── PAGE HEADER ── */
+.pageHeader {
+  position: relative;
+  padding: calc(64px + 4rem) 0 4rem; /* updated nav-height */
+  text-align: center;
+  overflow: hidden;
+  background: var(--grad-hero-bg);
+}
+
+.headerOrb1,
+.headerOrb2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.headerOrb1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(232,184,75,0.15); /* accent */
+  top: -60px;
+  left: -40px;
+}
+
+.headerOrb2 {
+  width: 250px;
+  height: 250px;
+  background: rgba(61,90,47,0.1); /* primary */
+  bottom: -40px;
+  right: -20px;
+  animation-delay: 4s;
+}
+
+.headerContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pageTitle {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--clr-text-primary);
+}
+
+.pageTitleAccent {
+  color: var(--clr-primary);
+  font-style: italic;
+}
+
+.pageSubtitle {
+  font-size: 1.05rem;
+  color: var(--clr-text-secondary);
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+/* ── CATEGORY OVERVIEW ── */
+.categoryOverview {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--clr-border);
+  background: var(--clr-bg);
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.overviewCard {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: var(--clr-bg-2);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.overviewCard:hover {
+  border-color: var(--clr-primary-light);
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.overviewActive {
+  border-color: var(--clr-primary) !important;
+  background: white !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.overviewCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--clr-primary);
+  border-radius: 4px 0 0 4px;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.overviewActive::before {
+  opacity: 1;
+}
+
+.overviewIcon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  background: var(--clr-bg);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--clr-border);
+  transition: all var(--transition-normal);
+}
+
+.overviewActive .overviewIcon {
+  background: var(--clr-primary);
+  color: white;
+  border-color: var(--clr-primary);
+}
+
+.overviewLabel {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--clr-text-primary);
+  line-height: 1.2;
+}
+
+.overviewCount {
+  font-size: 0.78rem;
+  color: var(--clr-text-secondary);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* ── FILTER BAR ── */
+.filterSection {
+  padding: 1.5rem 0;
+  background: var(--clr-bg);
+  border-bottom: 1px solid var(--clr-border);
+  overflow: hidden;
+}
+
+.filterBar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+
+.filterBar::-webkit-scrollbar {
+  display: none;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: white;
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-full);
+  color: var(--clr-text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-body);
+}
+
+.filterBtn:hover {
+  color: var(--clr-primary);
+  border-color: var(--clr-primary-light);
+  background: rgba(61,90,47,0.05);
+}
+
+.filterActive {
+  background: var(--clr-primary) !important;
+  border-color: var(--clr-primary) !important;
+  color: white !important;
+  box-shadow: 0 4px 16px rgba(61,90,47,0.25);
+}
+
+/* ── GRID ── */
+.gridSection {
+  padding: 3rem 0 5rem;
+  background: var(--clr-bg);
+}
+
+.resultCount {
+  font-size: 0.88rem;
+  color: var(--clr-text-secondary);
+  margin-bottom: 1.75rem;
+  font-weight: 500;
+}
+
+.resultCount strong {
+  color: var(--clr-primary);
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+
+/* Empty State */
+.empty {
+  text-align: center;
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: var(--clr-bg-2);
+  border-radius: var(--radius-xl);
+  border: 1px dashed var(--clr-border);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  color: var(--clr-text-muted);
+  opacity: 0.5;
+}
+
+.empty p {
+  color: var(--clr-text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .overviewGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .pageHeader {
+    padding: calc(64px + 2.5rem) 0 2.5rem;
+  }
+
+  .pageTitle {
+    font-size: clamp(2rem, 9vw, 3.5rem);
+  }
+
+  .pageSubtitle {
+    font-size: 0.9rem;
+  }
+
+  .categoryOverview {
+    padding: 2rem 0;
+  }
+
+  .overviewCard {
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .overviewIcon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .overviewLabel {
+    font-size: 0.82rem;
+  }
+
+  .overviewCount {
+    font-size: 0.72rem;
+  }
+
+  .filterSection {
+    padding: 1rem 0;
+  }
+
+  .filterBar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .filterBtn {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .gridSection {
+    padding: 2rem 0 4rem;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .overviewGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+}

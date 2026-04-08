@@ -1,0 +1,299 @@
+/* ── NAVBAR FLOATING ── */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.25rem var(--container-pad);
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* allow clicks through header padding area */
+}
+
+/* The actual floating pill */
+.nav {
+  pointer-events: all;
+  width: 100%;
+  max-width: calc(var(--container-max) - (var(--container-pad) * 2));
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  height: 64px;
+  padding: 0 8px; /* Reduced to push items exactly to the rounded edge */
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 32px rgba(61, 90, 47, 0.1), 0 2px 8px rgba(0,0,0,0.06);
+  transition: box-shadow var(--transition-normal), background var(--transition-normal);
+}
+
+.header.scrolled .nav {
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 40px rgba(61, 90, 47, 0.15), 0 2px 8px rgba(0,0,0,0.08);
+  border-color: var(--clr-border);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  text-decoration: none;
+  margin-right: auto;
+  padding-left: 2px;
+}
+
+.logoMark {
+  width: 46px; /* Increased diameter to match 64px outer radius hug perfectly */
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: transform var(--transition-normal);
+}
+
+.logo:hover .logoMark {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--clr-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.logoTextDot {
+  color: var(--clr-accent);
+}
+
+/* Nav Links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.navLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-text-secondary);
+  transition: all var(--transition-fast);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-full);
+}
+
+.navLink:hover {
+  color: var(--clr-primary);
+  background: rgba(61, 90, 47, 0.07);
+}
+
+.navLink.active {
+  color: var(--clr-primary);
+  background: rgba(61, 90, 47, 0.1);
+  font-weight: 600;
+}
+
+/* CTA Button */
+.ctaBtn {
+  padding: 0 1.4rem;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+  height: 48px; /* Force 48px exact height to hug the outer radius properly */
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-full);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 0.4rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--clr-text-primary);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Drawer — drops below pill */
+.drawer {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  position: fixed;
+  top: calc(64px + 1.5rem); /* pill height + top padding + gap */
+  left: var(--container-pad);
+  right: var(--container-pad);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(24px);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 12px 40px rgba(61, 90, 47, 0.15);
+  z-index: 99;
+  transform: translateY(-12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-normal);
+}
+
+.drawer ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.drawerLink {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--clr-text-secondary);
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.drawerLink:hover,
+.drawerLink.active {
+  color: var(--clr-primary);
+  background: rgba(61, 90, 47, 0.07);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navLinks,
+  .ctaBtn {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    pointer-events: all;
+    flex-shrink: 0;
+  }
+
+  .drawer {
+    display: flex;
+  }
+
+  .drawerOpen {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav {
+    padding: 0 0.75rem 0 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    min-width: 0; /* allow text to shrink */
+  }
+
+  .logoText {
+    font-size: 0.88rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+  }
+
+  .logoMark {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .nav {
+    height: 50px;
+    padding: 0 0.5rem 0 0.6rem;
+    max-width: 100%;
+    gap: 0;
+  }
+
+  .logo {
+    gap: 0.4rem;
+  }
+
+  .logoMark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logoText {
+    font-size: 0.78rem;
+    max-width: 130px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hamburger {
+    padding: 0.3rem;
+    gap: 4px;
+    margin-left: 0.5rem;
+  }
+
+  .hamburger span {
+    width: 20px;
+  }
+
+  .drawer {
+    left: 0.85rem;
+    right: 0.85rem;
+    top: calc(50px + 0.75rem);
+    padding: 1rem 1.25rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .logoText {
+    display: none;
+  }
+
+  .logoMark {
+    width: 34px;
+    height: 34px;
+  }
+}
