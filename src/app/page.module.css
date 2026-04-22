@@ -88,8 +88,26 @@
 }
 
 .heroTitleAccent {
-  color: var(--clr-primary);
+  display: inline-block;
   font-style: italic;
+  cursor: pointer;
+  position: relative;
+  font-size: 0.82em; /* Mengecilkan ukuran font khusus untuk bagian nama */
+}
+
+.nameLetter {
+  display: inline-block;
+  color: var(--clr-primary);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              color 0.4s ease, 
+              text-shadow 0.4s ease;
+  will-change: transform, color, text-shadow; /* Optimize for smooth animation */
+}
+
+.heroTitleAccent:hover .nameLetter {
+  color: var(--clr-accent);
+  transform: translateY(-8px) scale(1.1) rotate(2deg);
+  text-shadow: 0 12px 25px rgba(232, 184, 75, 0.3); /* Soft golden shadow */
 }
 
 .heroRole {

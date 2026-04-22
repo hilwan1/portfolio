@@ -47,7 +47,18 @@ export default function HomePage() {
 
             <h1 className={`${styles.heroTitle} animate-fadeUp animate-delay-1`}>
               I&apos;m{' '}
-              <span className={styles.heroTitleAccent}>Mohammad Hilwan</span>, 
+              <span className={styles.heroTitleAccent} aria-label="Mohammad Hilwan">
+                {"Mohammad Hilwan".split('').map((char, index) => (
+                  <span
+                    key={index}
+                    className={styles.nameLetter}
+                    style={{ transitionDelay: `${index * 30}ms` }}
+                    aria-hidden="true"
+                  >
+                    {char === ' ' ? '\u00A0' : char}
+                  </span>
+                ))}
+              </span>,
             </h1>
 
             <p className={`${styles.heroSubtitle} animate-fadeUp animate-delay-2`}>
