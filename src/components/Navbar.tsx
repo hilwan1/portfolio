@@ -16,8 +16,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
-  if (pathname === '/chat') return null;
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -25,6 +23,8 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => { setMenuOpen(false) }, [pathname])
+
+  if (pathname === '/chat') return null;
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>

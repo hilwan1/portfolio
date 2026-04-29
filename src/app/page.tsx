@@ -4,6 +4,7 @@ import Link from 'next/link'
 import ProjectCard from '@/components/ProjectCard'
 import TestimonialsSlider from '@/components/TestimonialsSlider'
 import FaqAccordion from '@/components/FaqAccordion'
+import FloatingChat from '@/components/FloatingChat'
 import { projects, categoryMeta } from '@/lib/projects'
 import styles from './page.module.css'
 
@@ -574,6 +575,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* ── FLOATING CHAT ── */}
+      <FloatingChat />
     </>
   )
 }
