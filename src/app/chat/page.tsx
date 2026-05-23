@@ -9,6 +9,27 @@ import styles from './chat.module.css';
 export default function ChatPage() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat();
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const updateViewportHeight = () => {
+      const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+      document.documentElement.style.setProperty('--chat-viewport-height', `${viewportHeight}px`);
+    };
+
+    updateViewportHeight();
+
+    window.visualViewport?.addEventListener('resize', updateViewportHeight);
+    window.visualViewport?.addEventListener('scroll', updateViewportHeight);
+    window.addEventListener('resize', updateViewportHeight);
+
+    return () => {
+      window.visualViewport?.removeEventListener('resize', updateViewportHeight);
+      window.visualViewport?.removeEventListener('scroll', updateViewportHeight);
+      window.removeEventListener('resize', updateViewportHeight);
+      document.documentElement.style.removeProperty('--chat-viewport-height');
+    };
+  }, []);
 
   useEffect(() => {
     // Auto scroll to bottom when new messages are added
@@ -16,6 +37,12 @@ export default function ChatPage() {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
+
+  const keepInputAboveKeyboard = () => {
+    window.setTimeout(() => {
+      inputRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }, 120);
+  };
 
   return (
     <div className={styles.chatContainer}>
@@ -102,10 +129,12 @@ export default function ChatPage() {
       <div className={styles.inputArea}>
         <form onSubmit={handleSubmit} className={styles.inputForm}>
           <input
+            ref={inputRef}
             className={styles.inputField}
             value={input}
             placeholder="Ketik pertanyaan untuk Hilwan di sini..."
             onChange={handleInputChange}
+            onFocus={keepInputAboveKeyboard}
             disabled={isLoading}
           />
           <button type="submit" className={styles.sendButton} disabled={isLoading || !input.trim()}>
