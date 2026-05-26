@@ -1,6 +1,7 @@
 .hero,
 .section,
-.about {
+.about,
+.testiSection {
   max-width: 1180px;
   margin: 0 auto;
   padding-left: var(--container-pad);
@@ -640,6 +641,174 @@
   font-size: 0.7rem;
 }
 
+.testiSection {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+}
+
+.testiGrid {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding: 0.3rem 0.8rem 1.2rem 0.2rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.testiGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.testiCard {
+  position: relative;
+  display: flex;
+  flex: 0 0 min(420px, 82vw);
+  min-height: 300px;
+  flex-direction: column;
+  gap: 1.1rem;
+  overflow: hidden;
+  border: 2px solid var(--clr-text-primary);
+  border-radius: 1.4rem;
+  background: var(--clr-bg);
+  box-shadow: 6px 6px 0 var(--clr-text-primary);
+  padding: 1.35rem;
+  scroll-snap-align: center;
+  opacity: 0.72;
+  transform: scale(0.96);
+  transition: transform 180ms ease, opacity 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.testiCard:nth-child(4n + 1) {
+  background: var(--clr-lime);
+}
+
+.testiCard:nth-child(4n + 2) {
+  background: var(--clr-pink);
+  color: var(--clr-bg);
+}
+
+.testiCard:nth-child(4n + 3) {
+  background: var(--clr-purple);
+  color: var(--clr-bg);
+}
+
+.testiCard:nth-child(4n + 4) {
+  background: var(--clr-orange);
+  color: var(--clr-bg);
+}
+
+.testiCardActive {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 10px 10px 0 var(--clr-text-primary);
+}
+
+.testiBigQuotes {
+  position: absolute;
+  right: 1rem;
+  bottom: -0.4rem;
+  color: currentColor;
+  font-family: var(--font-serif);
+  font-size: 8rem;
+  font-style: italic;
+  line-height: 0.7;
+  opacity: 0.12;
+}
+
+.testiRating {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.testiStars {
+  color: var(--clr-text-primary);
+  letter-spacing: 0.08em;
+}
+
+.testiCard:nth-child(4n + 2) .testiStars,
+.testiCard:nth-child(4n + 3) .testiStars,
+.testiCard:nth-child(4n + 4) .testiStars {
+  color: var(--clr-lime);
+}
+
+.testiText {
+  position: relative;
+  z-index: 1;
+  margin: auto 0;
+  color: currentColor;
+  font-family: var(--font-serif);
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+.testiAuthor {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.testiAvatar {
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  border: 2px solid var(--clr-text-primary);
+  border-radius: 999px;
+  background: var(--clr-bg);
+  object-fit: cover;
+}
+
+.testiAuthorName {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.testiControls {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.testiBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid var(--clr-text-primary);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--clr-text-primary);
+  color: var(--clr-text-primary);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.testiBtn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--clr-text-primary);
+}
+
+.testiBtnLeft {
+  background: var(--clr-bg);
+}
+
+.testiBtnRight {
+  background: var(--clr-lime);
+}
+
 .contact {
   position: relative;
   max-width: 980px;
@@ -836,7 +1005,20 @@
   }
 
   .heroTitle {
-    font-size: clamp(3.15rem, 15vw, 5rem);
+    max-width: 100%;
+    font-size: clamp(3rem, 13.2vw, 4.45rem);
+  }
+
+  .titleLineNowrap {
+    white-space: normal;
+  }
+
+  .nameHighlight {
+    max-width: 100%;
+  }
+
+  .nameHighlight span {
+    max-width: 100%;
   }
 
   .heroStats {
@@ -895,6 +1077,10 @@
   .availability {
     font-size: 0.66rem;
     padding: 0.42rem 0.75rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.75rem, 12.5vw, 3.6rem);
   }
 
   .heroActions {

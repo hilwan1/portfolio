@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import FloatingChat from '@/components/FloatingChat'
+import TestimonialsSlider from '@/components/TestimonialsSlider'
 import { projects } from '@/lib/projects'
 import styles from './page.module.css'
 
@@ -252,6 +253,16 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className={styles.testiSection} aria-label="Client testimonials">
+        <div className={styles.sectionHeader}>
+          <h2>
+            client words<span className={styles.purpleDot}>.</span>
+          </h2>
+          <p>/ testimonials 05</p>
+        </div>
+        <TestimonialsSlider />
       </section>
 
       <section id="contact" className={styles.contact} aria-label="Contact">
