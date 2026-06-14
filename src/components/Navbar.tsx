@@ -47,12 +47,9 @@ export default function Navbar() {
             </Link>
 
             <div className="hidden md:flex items-center gap-8 lg:gap-10">
-              <Link href="/#about" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Tentang</Link>
-              <Link href="/#projects" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Karya</Link>
-              <Link href="/#contact" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Kontak</Link>
-            </div>
-
-            <div className="hidden md:block">
+              <Link href="/#about" className="text-sm font-light uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Tentang</Link>
+              <Link href="/#projects" className="text-sm font-light uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Karya</Link>
+              <Link href="/#contact" className="text-sm font-light uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Kontak</Link>
               <Link href="/#contact" className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-colors ${isScrolled ? 'bg-[#ff5500] text-white hover:bg-[#e64d00]' : 'bg-white text-black hover:bg-neutral-200'}`}>
                 Hubungi Saya
               </Link>

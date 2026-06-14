@@ -21,7 +21,10 @@ import {
   Database,
   PenTool,
   Palette,
-  Globe
+  Globe,
+  Download,
+  Instagram,
+  AtSign
 } from 'lucide-react';
 
 interface FadeInProps {
@@ -174,10 +177,10 @@ const Hero = () => {
           {/* Background Photo with Blur/Gradient Effect */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[700px] aspect-square pointer-events-none z-0">
             <div className="absolute inset-0 bg-gradient-to-t from-[#1a0000] via-transparent to-transparent z-10 rounded-full"></div>
-            <img 
-              src="/foto-gue.png" 
-              alt="Background Silhouette" 
-              className="w-full h-full object-cover object-top opacity-70 mix-blend-overlay blur-[6px] rounded-full" 
+            <img
+              src="/foto-gue.png"
+              alt="Background Silhouette"
+              className="w-full h-full object-cover object-top opacity-70 mix-blend-overlay blur-[6px] rounded-full"
             />
           </div>
 
@@ -202,9 +205,12 @@ const Hero = () => {
                 <p className="text-white/80 text-lg md:text-xl font-medium leading-snug">
                   Let's collaborate to build something great.
                 </p>
-                <div className="flex gap-4 mt-2">
+                <div className="flex flex-wrap gap-4 mt-2">
                   <a href="#projects" className="bg-white text-black px-8 py-4 rounded-full text-sm font-bold hover:bg-neutral-200 transition-colors flex items-center gap-2 group">
                     Lihat Proyek <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                  <a href="/CV-Mohammad-Hilwan-2026.pdf" download="CV-Mohammad-Hilwan-2026.pdf" className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full text-sm font-bold hover:bg-white/10 transition-colors flex items-center gap-2">
+                    <Download className="w-4 h-4" /> Download CV
                   </a>
                 </div>
               </div>
@@ -251,6 +257,43 @@ const Hero = () => {
   );
 };
 
+const AboutMe = () => {
+  return (
+    <section id="about" className="py-24 md:py-32 px-6 w-full bg-white text-black flex items-center justify-center">
+      <div className="max-w-5xl mx-auto text-center">
+        <FadeIn>
+          <div className="flex flex-col items-center gap-4 mb-10">
+            <p className="text-sm font-bold tracking-widest uppercase text-neutral-400">Let's Connect</p>
+            <div className="flex items-center gap-4">
+              <a href="https://instagram.com/mohhilwan" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-[#ff5500] hover:border-[#ff5500] hover:text-white transition-all text-neutral-600" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="https://www.threads.com/@mohhilwan" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-[#ff5500] hover:border-[#ff5500] hover:text-white transition-all text-neutral-600" aria-label="Threads">
+                <AtSign className="w-5 h-5" />
+              </a>
+              <a href="https://linkedin.com/in/mohammadhilwan" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-[#ff5500] hover:border-[#ff5500] hover:text-white transition-all text-neutral-600" aria-label="LinkedIn">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+          <p className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold leading-relaxed md:leading-[1.4] tracking-tight text-black">
+            👋 Hello! I'm Mohammad Hilwan, —— a Fresh Graduate with a Diploma Degree (D3) in <span className="uppercase">Informatics Engineering</span> from Universitas Logistik dan
+            Bisnis Internasional, graduating with a Very Satisfactory distinction. I have experience in <span className="uppercase">UI/UX Design</span>, <span className="uppercase">Web Development</span>, and <span className="uppercase">Graphic Design</span>, particularly in designing intuitive, responsive, and user-friendly web and mobile application interfaces using user-centered design and design thinking approaches.
+          </p>
+
+          <div className="mt-20 w-full">
+            <p className="text-sm font-bold tracking-widest uppercase text-neutral-400 mb-8">My Favorite Tracks</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+              <iframe style={{ borderRadius: '16px' }} src="https://open.spotify.com/embed/track/48BWWtyjFE2le9sIqJitoL?si=c1b9beba95e74f1b?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowFullScreen={false} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+              <iframe style={{ borderRadius: '16px' }} src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowFullScreen={false} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
 const Stats = () => {
   const statsData = [
     { label: "Projects Completed", value: 350, suffix: "+" },
@@ -260,14 +303,14 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-12 px-6 max-w-[1400px] mx-auto">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-neutral-800/50">
+    <section className="py-16 px-6 w-full bg-[#ff5500]">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-white/20">
         {statsData.map((stat, index) => (
           <FadeIn key={index} delay={index * 150} className="flex flex-col items-center justify-center text-center py-6 md:py-0 px-4 group">
-            <h3 className="text-5xl md:text-6xl font-bold text-white mb-3 tracking-tighter group-hover:text-[#ff5500] transition-colors flex items-center justify-center">
+            <h3 className="text-5xl md:text-6xl font-bold text-white mb-3 tracking-tighter group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
               <AnimatedCounter end={stat.value} suffix={stat.suffix} />
             </h3>
-            <p className="text-neutral-500 text-xs md:text-sm font-semibold uppercase tracking-widest leading-relaxed max-w-[150px]">{stat.label}</p>
+            <p className="text-white/90 text-xs md:text-sm font-semibold uppercase tracking-widest leading-relaxed max-w-[150px]">{stat.label}</p>
           </FadeIn>
         ))}
       </div>
@@ -277,19 +320,19 @@ const Stats = () => {
 
 const TechStack = () => {
   return (
-    <section id="about" className="py-24 px-6 w-full bg-[#fdfdfd] text-black">
+    <section id="skills" className="py-24 px-6 w-full bg-[#fdfdfd] text-black border-t border-neutral-100">
       <div className="max-w-7xl mx-auto">
         <FadeIn>
           <div className="text-center mb-16 md:mb-20 flex flex-col items-center">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black tracking-tight uppercase max-w-4xl leading-tight">
-              HERE MY SKILLS.
+              I SPECIALIZE IN A RANGE OF SKILLS.
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SPECIALTIES.map((spec, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className="bg-white border border-neutral-200/60 p-8 md:p-10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="w-14 h-14 rounded-2xl bg-neutral-100 flex items-center justify-center mb-8">
@@ -462,6 +505,7 @@ export default function PortfolioHome() {
     <div className="bg-[#0a0a0a] min-h-screen text-white selection:bg-[#ff5500] selection:text-white font-sans overflow-x-hidden">
       <main>
         <Hero />
+        <AboutMe />
         <Stats />
         <TechStack />
         <Projects />
