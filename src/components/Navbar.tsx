@@ -30,18 +30,18 @@ export default function Navbar() {
   if (pathname === '/chat' || pathname === '/links') return null
 
   return (
-    <div className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isScrolled ? 'pt-4 md:pt-6 px-4' : 'pt-0 px-0'}`}>
-      <div className={`relative w-full transition-all duration-500 ${isScrolled ? 'max-w-4xl' : ''}`}>
+    <div className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${isScrolled ? 'pt-4 md:pt-6 px-4' : 'pt-0 px-0'}`}>
+      <div className={`relative w-full transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${isScrolled ? 'max-w-4xl' : 'max-w-full'}`}>
         <nav 
           className={`
-            relative transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden w-full
+            relative transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden w-full
             ${isScrolled 
               ? 'bg-[#111111]/80 backdrop-blur-xl border border-white/10 shadow-2xl rounded-full' 
-              : 'bg-[#0a0a0a] border-b border-neutral-900 rounded-none'
+              : 'bg-[#0a0a0a]/95 backdrop-blur-md border border-transparent border-b-neutral-900 rounded-none'
             }
           `}
         >
-          <div className={`flex items-center justify-between transition-all duration-500 mx-auto ${isScrolled ? 'px-6 py-3 md:px-8 md:py-4' : 'px-6 md:px-12 py-6 max-w-[1400px] w-full'}`}>
+          <div className={`flex items-center justify-between transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] mx-auto ${isScrolled ? 'px-6 py-3 md:px-8 md:py-4' : 'px-6 md:px-12 py-5 max-w-[1400px] w-full'}`}>
             <Link href="/" className="font-bold text-xl md:text-2xl tracking-tighter text-white">
               MH<span className="text-[#ff5500]">.</span>
             </Link>

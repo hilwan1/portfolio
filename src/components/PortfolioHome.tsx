@@ -65,6 +65,57 @@ const FadeIn = ({ children, delay = 0, className = "" }: FadeInProps) => {
   );
 };
 
+const TypingEffect = ({ html, className = "", speed = 15 }: { html: string, className?: string, speed?: number }) => {
+  const [displayedHtml, setDisplayedHtml] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
+  const domRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.4 });
+
+    if (domRef.current) observer.observe(domRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index >= html.length) {
+        clearInterval(interval);
+        setDisplayedHtml(html);
+        setIsFinished(true);
+        return;
+      }
+      if (html[index] === '<') {
+        while (index < html.length && html[index] !== '>') {
+          index++;
+        }
+        index++;
+      } else if (html[index] === '&') {
+        while (index < html.length && html[index] !== ';') {
+          index++;
+        }
+        index++;
+      } else {
+        index++;
+      }
+      setDisplayedHtml(html.substring(0, index));
+    }, speed);
+    return () => clearInterval(interval);
+  }, [isVisible, html, speed]);
+
+  return (
+    <p ref={domRef} className={className} dangerouslySetInnerHTML={{ __html: displayedHtml + (isFinished ? '' : '<span class="animate-pulse inline-block w-[0.15em] h-[1em] bg-black ml-1 align-text-bottom opacity-70"></span>') }} />
+  );
+};
+
 interface AnimatedCounterProps {
   end: number;
   duration?: number;
@@ -276,10 +327,11 @@ const AboutMe = () => {
               </a>
             </div>
           </div>
-          <p className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold leading-relaxed md:leading-[1.4] tracking-tight text-black">
-            👋 Hello! I'm Mohammad Hilwan, —— a Fresh Graduate with a Diploma Degree (D3) in <span className="uppercase">Informatics Engineering</span> from Universitas Logistik dan
-            Bisnis Internasional, graduating with a Very Satisfactory distinction. I have experience in <span className="uppercase">UI/UX Design</span>, <span className="uppercase">Web Development</span>, and <span className="uppercase">Graphic Design</span>, particularly in designing intuitive, responsive, and user-friendly web and mobile application interfaces using user-centered design and design thinking approaches.
-          </p>
+          <TypingEffect 
+            html={'👋 Hello! I\'m Mohammad Hilwan, —— a Fresh Graduate with a Diploma Degree (D3) in <span class="uppercase">Informatics Engineering</span> from Universitas Logistik dan Bisnis Internasional, graduating with a Very Satisfactory distinction. I have experience in <span class="uppercase">UI/UX Design</span>, <span class="uppercase">Web Development</span>, and <span class="uppercase">Graphic Design</span>, particularly in designing intuitive, responsive, and user-friendly web and mobile application interfaces using user-centered design and design thinking approaches.'}
+            className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold leading-relaxed md:leading-[1.4] tracking-tight text-black min-h-[350px] md:min-h-[250px] lg:min-h-[200px]"
+            speed={20}
+          />
 
           <div className="mt-20 w-full">
             <p className="text-sm font-bold tracking-widest uppercase text-neutral-400 mb-8">My Favorite Tracks</p>
@@ -296,9 +348,9 @@ const AboutMe = () => {
 
 const Stats = () => {
   const statsData = [
-    { label: "Projects Completed", value: 350, suffix: "+" },
-    { label: "Happy Clients", value: 300, suffix: "+" },
-    { label: "Years Experience", value: 4, suffix: "+" },
+    { label: "Projects Completed", value: 400, suffix: "+" },
+    { label: "Happy Clients", value: 350, suffix: "+" },
+    { label: "Years Experience", value: 5, suffix: "+" },
     { label: "Lighthouse Score", value: 99, suffix: "+" },
   ];
 
