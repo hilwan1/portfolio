@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { projects } from '@/lib/projects';
+import ProjectCard from '@/components/ProjectCard';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -20,7 +21,7 @@ import {
   MonitorSmartphone,
   Database,
   PenTool,
-  Palette,
+  Terminal,
   Globe,
   Download,
   Instagram,
@@ -171,22 +172,22 @@ const SPECIALTIES = [
   {
     icon: PenTool,
     title: "UI/UX Design",
-    skills: "Figma, Framer, User Flow"
+    skills: "Figma, Framer, User Flow, Wireframing"
   },
   {
     icon: Database,
     title: "Database Management",
-    skills: "MySQL, PostgreSQL"
+    skills: "MySQL, PostgreSQL, MongoDB"
   },
   {
     icon: Globe,
     title: "API Integration",
-    skills: "RESTful API, Postman"
+    skills: "RESTful API, GraphQL, Third-party APIs"
   },
   {
-    icon: Palette,
-    title: "Graphic Design",
-    skills: "Photoshop, Illustrator, CorelDraw"
+    icon: Terminal,
+    title: "DevOps & Deployment",
+    skills: "Git, cPanel, VPS, Vercel, Netlify"
   }
 ];
 
@@ -260,7 +261,7 @@ const Hero = () => {
                   <a href="#projects" className="bg-white text-black px-8 py-4 rounded-full text-sm font-bold hover:bg-neutral-200 transition-colors flex items-center gap-2 group">
                     Lihat Proyek <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
-                  <a href="/CV-Mohammad-Hilwan-2026.pdf" download="CV-Mohammad-Hilwan-2026.pdf" className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full text-sm font-bold hover:bg-white/10 transition-colors flex items-center gap-2">
+                  <a href="/CV-ATS-Mohammad-Hilwan.pdf" download="CV-ATS-Mohammad-Hilwan.pdf" className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full text-sm font-bold hover:bg-white/10 transition-colors flex items-center gap-2">
                     <Download className="w-4 h-4" /> Download CV
                   </a>
                 </div>
@@ -276,7 +277,7 @@ const Hero = () => {
             </div>
             <div>
               <p className="text-[#ffaa00] text-xs font-bold mb-3 tracking-widest">#02</p>
-              <p className="text-white/90 text-sm font-medium">Graphic Designer also</p>
+              <p className="text-white/90 text-sm font-medium">Back-end & Database</p>
             </div>
             <div>
               <p className="text-[#ffaa00] text-xs font-bold mb-3 tracking-widest">#03</p>
@@ -327,19 +328,11 @@ const AboutMe = () => {
               </a>
             </div>
           </div>
-          <TypingEffect 
-            html={'👋 Hello! I\'m Mohammad Hilwan, —— a Fresh Graduate with a Diploma Degree (D3) in <span class="uppercase">Informatics Engineering</span> from Universitas Logistik dan Bisnis Internasional, graduating with a Very Satisfactory distinction. I have experience in <span class="uppercase">UI/UX Design</span>, <span class="uppercase">Web Development</span>, and <span class="uppercase">Graphic Design</span>, particularly in designing intuitive, responsive, and user-friendly web and mobile application interfaces using user-centered design and design thinking approaches.'}
+          <TypingEffect
+            html={'👋 Hello! I\'m Mohammad Hilwan, —— a Fresh Graduate with a Diploma Degree (D3) in <span class="uppercase">Informatics Engineering</span> from Universitas Logistik dan Bisnis Internasional, graduating with a Very Satisfactory distinction. I have experience in <span class="uppercase">Full-Stack Web Development</span> and <span class="uppercase">UI/UX Design</span>, particularly in designing and developing intuitive, responsive, and user-friendly web applications using user-centered design and design thinking approaches.'}
             className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold leading-relaxed md:leading-[1.4] tracking-tight text-black min-h-[350px] md:min-h-[250px] lg:min-h-[200px]"
             speed={20}
           />
-
-          <div className="mt-20 w-full">
-            <p className="text-sm font-bold tracking-widest uppercase text-neutral-400 mb-8">My Favorite Tracks</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-              <iframe style={{ borderRadius: '16px' }} src="https://open.spotify.com/embed/track/48BWWtyjFE2le9sIqJitoL?si=c1b9beba95e74f1b?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowFullScreen={false} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              <iframe style={{ borderRadius: '16px' }} src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowFullScreen={false} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-          </div>
         </FadeIn>
       </div>
     </section>
@@ -348,9 +341,9 @@ const AboutMe = () => {
 
 const Stats = () => {
   const statsData = [
-    { label: "Projects Completed", value: 400, suffix: "+" },
-    { label: "Happy Clients", value: 350, suffix: "+" },
-    { label: "Years Experience", value: 5, suffix: "+" },
+    { label: "Projects Completed", value: 12, suffix: "+" },
+    { label: "Happy Clients", value: 6, suffix: "+" },
+    { label: "Years Experience", value: 1, suffix: "+" },
     { label: "Lighthouse Score", value: 99, suffix: "+" },
   ];
 
@@ -425,36 +418,7 @@ const Projects = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {displayProjects.map((project, index) => (
-          <FadeIn key={project.id} delay={index * 150} className="group cursor-pointer">
-            <Link href={`/projects/${project.id}`} className="block h-full flex flex-col p-4 md:p-5 rounded-[2rem] bg-[#111111] border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
-              <div className="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-6">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <div className="flex-1 flex flex-col px-2">
-                <h3 className="text-xl font-bold text-white mb-2 leading-tight">{project.title}</h3>
-                <p className="text-neutral-400 text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-neutral-800">
-                  {project.tags.slice(0, 3).map(tag => (
-                    <span key={tag} className="px-3 py-1 rounded-full bg-[#1a1a1a] text-[11px] font-semibold text-neutral-300 tracking-wider">
-                      {tag}
-                    </span>
-                  ))}
-                  {project.tags.length > 3 && (
-                    <span className="px-3 py-1 rounded-full bg-[#1a1a1a] text-[11px] font-semibold text-neutral-500 tracking-wider">
-                      +{project.tags.length - 3}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </Link>
-          </FadeIn>
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </section>

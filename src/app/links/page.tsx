@@ -3,11 +3,11 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Links | Mohammad Hilwan',
-  description: 'Temukan semua tautan untuk memesan layanan, melihat portofolio, dan menghubungi Mohammad Hilwan.',
+  title: 'Tautan Layanan & Hubungi Mohammad Hilwan — Jasa Pembuatan Website',
+  description: 'Hubungi Mohammad Hilwan untuk memesan jasa pembuatan website profesional, sistem informasi custom, e-commerce, portal layanan, dan konsultasi proyek IT.',
   openGraph: {
-    title: 'Links | Mohammad Hilwan',
-    description: 'Temukan semua tautan untuk memesan layanan, melihat portofolio, dan menghubungi Mohammad Hilwan.',
+    title: 'Tautan Layanan & Hubungi Mohammad Hilwan — Jasa Pembuatan Website',
+    description: 'Hubungi Mohammad Hilwan untuk memesan jasa pembuatan website profesional, sistem informasi custom, e-commerce, portal layanan, dan konsultasi proyek IT.',
     images: ['/foto-hero.jpeg'],
   },
 }
@@ -52,7 +52,7 @@ export default function LinksPage() {
             />
           </div>
           <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">Mohammad Hilwan</h1>
-          <p className="text-neutral-400 font-mono text-xs md:text-sm tracking-wider uppercase">Full-Stack Developer & Graphic Designer</p>
+          <p className="text-neutral-400 font-mono text-xs md:text-sm tracking-wider uppercase">Full-Stack Web Developer</p>
 
           <div className="flex gap-4 mt-6">
             <a href="https://www.instagram.com/onedesignnn" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-12 h-12 flex items-center justify-center rounded-full bg-[#111111] border border-neutral-800 hover:bg-[#ff5500] hover:border-[#ff5500] hover:-translate-y-1 transition-all shadow-lg text-lg">

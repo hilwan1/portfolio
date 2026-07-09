@@ -208,10 +208,10 @@ export default function ContactPage() {
                     className={styles.select}
                   >
                     <option value="" disabled>Pilih topik...</option>
-                    <option value="web">Web Development Project</option>
-                    <option value="logo">Logo Design</option>
-                    <option value="uiux">UI/UX Design</option>
-                    <option value="poster">Poster / Graphic Design</option>
+                    <option value="fullstack">Full-Stack Web Application</option>
+                    <option value="frontend">Front-End Development</option>
+                    <option value="backend">Back-End / API Development</option>
+                    <option value="uiux">UI/UX Design for Web</option>
                     <option value="collab">Collaboration</option>
                     <option value="other">Lainnya</option>
                   </select>

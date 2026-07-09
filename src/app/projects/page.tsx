@@ -7,11 +7,10 @@ import { projects, categoryMeta, ProjectCategory } from '@/lib/projects'
 type Filter = 'all' | ProjectCategory
 
 const filters: { value: Filter; label: string; icon?: string }[] = [
-  { value: 'all',    label: 'All Projects' },
-  { value: 'web',    label: categoryMeta.web.label,    icon: categoryMeta.web.icon    },
-  { value: 'logo',   label: categoryMeta.logo.label,   icon: categoryMeta.logo.icon   },
-  { value: 'uiux',   label: categoryMeta.uiux.label,   icon: categoryMeta.uiux.icon   },
-  { value: 'poster', label: categoryMeta.poster.label, icon: categoryMeta.poster.icon },
+  { value: 'all',       label: 'Semua Projek' },
+  { value: 'fullstack', label: categoryMeta.fullstack.label, icon: categoryMeta.fullstack.icon },
+  { value: 'frontend',  label: categoryMeta.frontend.label,  icon: categoryMeta.frontend.icon  },
+  { value: 'backend',   label: categoryMeta.backend.label,   icon: categoryMeta.backend.icon   },
 ]
 
 export default function ProjectsPage() {
@@ -37,7 +36,7 @@ export default function ProjectsPage() {
             Karya <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff5500] to-[#ffaa00]">Terbaik</span> Saya
           </h1>
           <p className="text-neutral-400 text-lg md:text-xl max-w-2xl leading-relaxed">
-            Koleksi karya terbaik dari berbagai projek — dari kode hingga desain, setiap proyek memiliki cerita dan dampaknya tersendiri.
+            Koleksi sistem dan aplikasi web terbaik yang saya bangun — dari perancangan arsitektur backend, manajemen database, hingga antarmuka pengguna yang responsif.
           </p>
         </div>
       </section>

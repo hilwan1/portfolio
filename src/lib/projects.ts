@@ -1,4 +1,4 @@
-export type ProjectCategory = 'web' | 'logo' | 'uiux' | 'poster'
+export type ProjectCategory = 'fullstack' | 'frontend' | 'backend'
 
 export interface Project {
   id: number
@@ -13,221 +13,168 @@ export interface Project {
 }
 
 export const categoryMeta: Record<ProjectCategory, { label: string; icon: string; color: string; desc: string }> = {
-  web: {
-    label: 'Web Development',
-    icon: 'fa-solid fa-code',
+  fullstack: {
+    label: 'Full-Stack Web App',
+    icon: 'fa-solid fa-layer-group',
     color: '#38b6ff',
-    desc: 'Full-stack web applications & interactive websites built with modern frameworks.',
+    desc: 'Aplikasi web dinamis dengan integrasi database, manajemen state, dan logika backend yang kompleks.',
   },
-  logo: {
-    label: 'Logo Design',
-    icon: 'fa-solid fa-pen-nib',
-    color: '#f6c90e',
-    desc: 'Brand identities crafted with philosophical foundations, geometry & meaningful symbolism.',
-  },
-  uiux: {
-    label: 'UI/UX Design',
-    icon: 'fa-solid fa-object-group',
+  frontend: {
+    label: 'Front-End Development',
+    icon: 'fa-solid fa-code',
     color: '#a78bfa',
-    desc: 'Mobile & web interfaces designed for intuitive user experience and visual delight.',
+    desc: 'Antarmuka web interaktif yang responsif dan berkinerja tinggi menggunakan framework modern.',
   },
-  poster: {
-    label: 'Poster Design',
-    icon: 'fa-solid fa-palette',
+  backend: {
+    label: 'Back-End & API',
+    icon: 'fa-solid fa-server',
     color: '#fb923c',
-    desc: 'Print & digital graphic design — event collaterals, social media, and marketing materials.',
+    desc: 'Pengembangan server, perancangan database, dan integrasi API yang aman dan skalabel.',
   },
 }
 
 export const projects: Project[] = [
-  /* ── Web Development ── */
   {
     id: 1,
-    title: 'B3 dan MOMAHE',
-    description: 'Platform Belajar Bersama BBPMP Provinsi Jawa Barat untuk pendaftaran layanan moving class, parenting, penguatan PTK, dan MOMAHE (Mobil Mainan Hebat) untuk pendidikan PAUD.',
-    category: 'web',
-    image: '/B3 dan MOMAHE/landingpage2.png',
+    title: 'Abadi Rent',
+    description: 'Sistem informasi persewaan mobil (car rental) berbasis web yang terintegrasi dengan manajemen inventaris armada kendaraan, perhitungan harga otomatis, dan sistem invoicing untuk mempercepat proses administrasi.',
+    category: 'fullstack',
+    image: '/web/abadirent.jpg',
     gallery: [
-      '/B3 dan MOMAHE/landingpage.png',
-      '/B3 dan MOMAHE/admin.png',
-      '/B3 dan MOMAHE/form-input-movingclass.png',
-      '/B3 dan MOMAHE/riwayat-pengajuan.png',
-      '/B3 dan MOMAHE/status-pengajuan.png',
-      '/B3 dan MOMAHE/user-profile.png'
+      '/web/abadirent.jpg'
     ],
-    tags: ['Laravel', 'MySQL', 'Bootstrap','PHP'],
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'Invoicing System'],
     year: 2026,
     featured: true,
   },
   {
     id: 2,
-    title: 'SIMANTEN BBPMP Provinsi Jawa Barat',
-    description: 'SIMANTEN ini adalam Sistem Manajemen Terintegrasi BMN BBPMP Provinsi Jawa Barat yang fungsinya untuk mengelola permintaan barang, bisa melihat status barang tersedia dan bisa mengajukan permintaan kendaraan dinas',
-    category: 'web',
-    image: '/BMN/cover.png',
+    title: 'Belajar Bersama BBPMP',
+    description: 'Platform digital BBPMP Provinsi Jawa Barat untuk pendaftaran moving class, parenting, penguatan PTK, dan MOMAHE (Mobil Mainan Hebat) untuk pendidikan anak usia dini secara terpadu.',
+    category: 'fullstack',
+    image: '/web/belajarbersamabbpmp.jpg',
     gallery: [
-      '/BMN/landingpage.png',
-      '/BMN/admin.png',
-      '/BMN/form-pengajuan-barang.png',
-      '/BMN/form-pengajuan-kendaraan.png',
-      '/BMN/barang.png'
+      '/web/belajarbersamabbpmp.jpg'
     ],
-    tags: ['Laravel', 'MySQL', 'Bootstrap','PHP'],
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'Layanan Publik'],
     year: 2025,
     featured: true,
   },
   {
     id: 3,
     title: 'MindCare Chatbot',
-    description: 'MindCare adalah chatbot yang dirancang untuk membantu pengguna dalam mengelola kesehatan mental mereka. Chatbot ini menyediakan fitur-fitur seperti konseling, terapi, dan dukungan emosional.',
-    category: 'web',
-    image: '/Chatbot/landingpage.png',
+    description: 'Aplikasi web asisten kesehatan mental interaktif (chatbot) berbasis kecerdasan buatan untuk membantu konseling psikologis awal secara real-time dan memberikan rujukan informasi medis terpercaya.',
+    category: 'fullstack',
+    image: '/web/mindcarechatbot.jpg',
     gallery: [
-      '/Chatbot/landingpage.png',
-      '/Chatbot/dashboard.png',
-      '/Chatbot/chat.png',
-      '/Chatbot/start-chat.png',
-      '/Chatbot/riwayat-chat.png',
-      '/Chatbot/profile.png'
+      '/web/mindcarechatbot.jpg'
     ],
-    tags: ['CodeIgniter 4', 'MySQL', 'Bootstrap','PHP'],
+    tags: ['CodeIgniter 4', 'MySQL', 'Bootstrap', 'AI API', 'Chatbot'],
     year: 2025,
     featured: true,
   },
   {
     id: 4,
-    title: 'JNE Warehouse Tracking',
-    description: 'JNE Warehouse Tracking adalah sebuah proyek website sistem manajemen gudang dengan teknologi barcode scanner.',
-    category: 'web',
-    image: '/jne/login.png',
+    title: 'Design Studio Portfolio',
+    description: 'Website portofolio interaktif dan modern yang dirancang khusus untuk agensi desain grafis guna memamerkan karya kreatif mereka dengan tata letak minimalis dan estetika tinggi.',
+    category: 'frontend',
+    image: '/web/portofoliodesign.jpg',
     gallery: [
-      '/jne/login.png',
-      '/jne/dashboard.png',
-      '/jne/inbound.png',
-      '/jne/outbound.png',
-      '/jne/riwayat-out.png',
-      '/jne/barang.png'
+      '/web/portofoliodesign.jpg'
     ],
-    tags: ['CodeIgniter 4', 'MySQL', 'Bootstrap', 'Barcode Scanner'],
-    year: 2025,
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'Responsive'],
+    year: 2026,
     featured: true,
   },
-
-  /* ── Logo Design ── */
   {
     id: 5,
-    title: 'Southside Coffee Shop',
-    description: 'Southside Coffee Shop adalah sebuah brand logo yang saya rancang dengan modern dan elegant.',
-    category: 'logo',
-    image: '/southside/southside2.jpg',
+    title: 'SIMANTEN BBPMP Jawa Barat',
+    description: 'Sistem Manajemen Terintegrasi BMN (Barang Milik Negara) BBPMP Provinsi Jawa Barat untuk mengelola persediaan barang, inventaris aset kantor, serta permintaan peminjaman armada kendaraan dinas secara otomatis.',
+    category: 'fullstack',
+    image: '/web/SIMANTEN.jpg',
     gallery: [
-      '/southside/southside.jpg'
+      '/web/SIMANTEN.jpg'
     ],
-    tags: ['Adobe Illustrator', 'Adobe Photoshop', 'Modern', 'Elegant'],
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'Manajemen Aset'],
     year: 2025,
     featured: true,
   },
   {
     id: 6,
-    title: 'Kopirasi Coffee Shop',
-    description: 'Kopirasi Coffee Shop adalah sebuah brand logo yang saya rancang dengan modern dan elegant.',
-    category: 'logo',
-    image: '/kopirasi/kopirasi2.jpg',
+    title: 'Dashboard SIMPEG BBPMP Jabar',
+    description: 'Sistem Informasi Manajemen Kepegawaian internal BBPMP Provinsi Jawa Barat untuk mempermudah pemantauan rekam data staf, manajemen absensi, pengarsipan berkas dinas, dan visualisasi absensi pegawai.',
+    category: 'frontend',
+    image: '/web/DashboardSIMPEG.jpg',
     gallery: [
-      '/kopirasi/kopirasi.jpg'
+      '/web/DashboardSIMPEG.jpg'
     ],
-    tags: ['Adobe Illustrator', 'Adobe Photoshop', 'Modern', 'Elegant'],
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'SIMPEG'],
     year: 2025,
     featured: true,
   },
   {
     id: 7,
-    title: 'Beautea Cosmetic',
-    description: 'Beautea Cosmetic adalah sebuah brand logo yang saya rancang dengan modern dan elegant.',
-    category: 'logo',
-    image: '/beautea/beautea2.jpg',
+    title: 'E-Commerce Warung Pacitan',
+    description: 'Platform toko online (e-commerce) lokal untuk pemasaran kuliner dan kerajinan khas Pacitan, dilengkapi sistem manajemen katalog produk, keranjang belanja terintegrasi, dan kalkulasi total ongkos pengiriman.',
+    category: 'fullstack',
+    image: '/web/ecommercewarungpacitan.jpg',
     gallery: [
-      '/beautea/beautea.jpg'
+      '/web/ecommercewarungpacitan.jpg'
     ],
-    tags: ['Adobe Illustrator', 'Adobe Photoshop', 'Modern', 'Elegant'],
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'E-Commerce'],
     year: 2025,
     featured: true,
   },
   {
     id: 8,
-    title: 'Rap Studio',
-    description: 'Rap Studio adalah sebuah brand logo yang saya rancang dengan modern dan elegant.',
-    category: 'logo',
-    image: '/rap/rap2.jpg',
+    title: 'Hook Agency Dashboard',
+    description: 'Dashboard analitik interaktif untuk memantau performa agensi pemasaran kreatif, melacak target bulanan, mengelola data klien (CRM), serta memantau status pengerjaan proyek secara berkala.',
+    category: 'frontend',
+    image: '/web/DashboardHookAgency.jpg',
     gallery: [
-      '/rap/rap.jpg'
+      '/web/DashboardHookAgency.jpg'
     ],
-    tags: ['Adobe Illustrator', 'Adobe Photoshop', 'Modern', 'Elegant'],
-    year: 2025,
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'Dashboard'],
+    year: 2026,
     featured: true,
   },
-
-  /* ── UI/UX Design ── */
   {
     id: 9,
-    title: 'E-Commerce Astha',
-    description: 'E-Commerce Astha adalah sebuah website e-commerce yang dimana saya membuat bagian dari UI Web nya.',
-    category: 'uiux',
-    image: '/astha/astha.jpg',
+    title: 'Astha E-Commerce Hub',
+    description: 'Website e-commerce modern dengan halaman beranda yang dinamis dan katalog produk interaktif untuk meningkatkan pengalaman berbelanja pengguna secara intuitif.',
+    category: 'fullstack',
+    image: '/web/EcommerceAstha.jpg',
     gallery: [
-      '/astha/astha.jpg'
+      '/web/EcommerceAstha.jpg',
+      '/web/landingpageastha.jpg'
     ],
-    tags: ['Figma', 'UI Design'],
+    tags: ['Laravel', 'PHP', 'Bootstrap', 'MySQL', 'E-Commerce'],
     year: 2025,
     featured: true,
   },
   {
     id: 10,
-    title: 'myAstha',
-    description: 'myAstha adalah sebuah website Networking yang dimana saya membuat bagian dari UI Web nya.',
-    category: 'uiux',
-    image: '/myastha/Frame 1.png',
+    title: 'CEKResiIn Portal',
+    description: 'Aplikasi web pencarian dan pelacakan resi ekspedisi pengiriman paket terintegrasi (courier tracking portal) yang menghubungkan API data logistik pihak ketiga secara real-time.',
+    category: 'fullstack',
+    image: '/web/CEKResiIn.jpg',
     gallery: [
-      '/myastha/Frame 1.png',
-      '/myastha/Frame 2.png',
-      '/myastha/Frame 3.png',
-      '/myastha/Frame 4.png'
+      '/web/CEKResiIn.jpg'
     ],
-    tags: ['Figma', 'UI Design'],
+    tags: ['PHP Native', 'Bootstrap', 'API Tracking'],
     year: 2025,
     featured: true,
   },
   {
     id: 11,
-    title: 'Astha Superior',
-    description: 'Astha Superior adalah sebuah website Networking yang dimana saya membuat bagian dari UI Web nya.',
-    category: 'uiux',
-    image: '/asthasuperior/asthasuperior.jpg',
+    title: 'Task Checklist Dashboard',
+    description: 'Aplikasi manajemen tugas harian yang intuitif dengan visualisasi tingkat kemajuan pekerjaan (progress tracking), fitur checklist interaktif, serta pengorganisasian tugas berdasarkan prioritas.',
+    category: 'frontend',
+    image: '/web/DashboardTaskChecklist.jpg',
     gallery: [
-      '/asthasuperior/asthasuperior.jpg'
+      '/web/DashboardTaskChecklist.jpg'
     ],
-    tags: ['Figma', 'UI Design'],
-    year: 2025,
-    featured: true,
-  },
-
-  /* ── Poster Design ── */
-  {
-    id: 12,
-    title: 'Feed Instagram Design',
-    description: 'Desain Feed Instagram dari beberapa brand yang pernah saya kerjakan.',
-    category: 'poster',
-    image: '/feed/feed1.jpg',
-    gallery: [
-      '/feed/feed1.jpg',
-      '/feed/feed2.jpg',
-      '/feed/feed3.jpg',
-      '/feed/feed4.jpg',
-      '/feed/feed5.jpg',
-      '/feed/feed6.jpg',
-      '/feed/feed7.jpg'
-    ],
-    tags: ['Social Media', 'Photoshop', 'Illustrator'],
+    tags: ['Laravel', 'PHP', 'Bootstrap', 'State Management'],
     year: 2025,
     featured: true,
   },

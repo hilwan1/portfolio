@@ -4,10 +4,25 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Mohammad Hilwan — Designer & Developer',
+  title: 'Jasa Pembuatan Website & Aplikasi Web Custom — Mohammad Hilwan',
   description:
-    'Portfolio of Mohammad Hilwan, a creative designer and developer specializing in Web Development, Logo Design, UI/UX Design, and Poster Design.',
-  keywords: ['portfolio', 'designer', 'developer', 'UI/UX', 'logo design', 'web development', 'Mohammad Hilwan'],
+    'Jasa pembuatan website profesional, aplikasi web custom, sistem informasi manajemen perusahaan, e-commerce, & integrasi API oleh Mohammad Hilwan, Full-Stack Web Developer berpengalaman (Laravel, CI4, Next.js).',
+  keywords: [
+    'jasa pembuatan website',
+    'jasa pembuatan aplikasi web',
+    'pembuatan website custom',
+    'jasa web developer',
+    'programmer laravel',
+    'jasa sistem informasi',
+    'jasa pembuatan website bandung',
+    'jasa pembuatan aplikasi custom',
+    'fullstack developer indonesia',
+    'Laravel',
+    'CodeIgniter',
+    'Next.js',
+    'React',
+    'Mohammad Hilwan'
+  ],
   authors: [{ name: 'Mohammad Hilwan' }],
   icons: {
     icon: '/logo.svg',
@@ -16,22 +31,22 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    title: 'Mohammad Hilwan — Designer & Developer',
-    description: 'Saya adalah seorang desainer grafis dan web developer kreatif. Menghadirkan solusi visual dan digital yang elegan (Web, Logo, UI/UX, Poster).',
+    title: 'Jasa Pembuatan Website & Aplikasi Web Custom — Mohammad Hilwan',
+    description: 'Solusi pembuatan website profesional, aplikasi custom, dan sistem informasi manajemen berbasis Laravel, CodeIgniter, & Next.js.',
     siteName: 'Mohammad Hilwan Portfolio',
     images: [
       {
         url: '/foto-hero.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Mohammad Hilwan Portfolio',
+        alt: 'Jasa Pembuatan Website & Aplikasi Web Custom — Mohammad Hilwan',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mohammad Hilwan — Designer & Developer',
-    description: 'Saya adalah seorang desainer grafis dan web developer kreatif. Menghadirkan solusi visual dan digital yang elegan (Web, Logo, UI/UX, Poster).',
+    title: 'Jasa Pembuatan Website & Aplikasi Web Custom — Mohammad Hilwan',
+    description: 'Solusi pembuatan website profesional, aplikasi custom, dan sistem informasi manajemen berbasis Laravel, CodeIgniter, & Next.js.',
     images: ['/foto-hero.jpeg'],
   },
 }

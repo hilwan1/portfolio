@@ -61,11 +61,6 @@ export default function TestimonialsSlider() {
       rating: '5,0'
     },
     { 
-      name: 'Yusuf Maulana', 
-      review: 'hasil logo sangat bagus! akan pesan lagi!',
-      rating: '5,0'
-    },
-    { 
       name: 'Fahmi Sidiq', 
       review: 'Very talented, understanding, highly recommended. Thank you so much!',
       rating: '5,0'
