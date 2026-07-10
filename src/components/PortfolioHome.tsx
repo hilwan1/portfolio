@@ -232,7 +232,7 @@ const Hero = () => {
             <img
               src="/foto-gue.png"
               alt="Background Silhouette"
-              className="w-full h-full object-cover object-top opacity-70 mix-blend-overlay blur-[6px] rounded-full"
+              className="w-full h-full object-cover object-top opacity-70 mix-blend-overlay blur-[1px] rounded-full"
             />
           </div>
 
@@ -310,6 +310,39 @@ const Hero = () => {
 };
 
 const AboutMe = () => {
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!textRef.current) return;
+      const rect = textRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Start fading in when the element's top passes 85% of viewport height from the top.
+      // Be fully visible (opacity = 1) when the element's top reaches 40% of viewport height.
+      const start = windowHeight * 0.85;
+      const end = windowHeight * 0.40;
+
+      let currentOpacity = 0;
+      if (rect.top < start) {
+        currentOpacity = (start - rect.top) / (start - end);
+      }
+
+      currentOpacity = Math.max(0, Math.min(1, currentOpacity));
+      setOpacity(currentOpacity);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    handleScroll(); // Initial run
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
   return (
     <section id="about" className="py-24 md:py-32 px-6 w-full bg-white text-black flex items-center justify-center">
       <div className="max-w-5xl mx-auto text-center">
@@ -328,12 +361,18 @@ const AboutMe = () => {
               </a>
             </div>
           </div>
-          <TypingEffect
-            html={'👋 Hello! I\'m Mohammad Hilwan, —— a Fresh Graduate with a Diploma Degree (D3) in <span class="uppercase">Informatics Engineering</span> from Universitas Logistik dan Bisnis Internasional, graduating with a Very Satisfactory distinction. I have experience in <span class="uppercase">Full-Stack Web Development</span> and <span class="uppercase">UI/UX Design</span>, particularly in designing and developing intuitive, responsive, and user-friendly web applications using user-centered design and design thinking approaches.'}
-            className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold leading-relaxed md:leading-[1.4] tracking-tight text-black min-h-[350px] md:min-h-[250px] lg:min-h-[200px]"
-            speed={20}
-          />
         </FadeIn>
+
+        <p
+          ref={textRef}
+          className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold leading-relaxed md:leading-[1.4] tracking-tight text-black transition-all duration-500 ease-out"
+          style={{
+            opacity: opacity,
+            transform: `translateY(${(1 - opacity) * 15}px)`,
+          }}
+        >
+          👋 Hello! I'm Mohammad Hilwan, —— a Fresh Graduate with a Diploma Degree (D3) in <span className="uppercase text-[#ff5500]">Informatics Engineering</span> from Universitas Logistik dan Bisnis Internasional, graduating with a Very Satisfactory distinction. I have experience in <span className="uppercase text-[#ff5500]">Full-Stack Web Development</span> and <span className="uppercase text-[#ff5500]">UI/UX Design</span>, particularly in designing and developing intuitive, responsive, and user-friendly web applications using user-centered design and design thinking approaches.
+        </p>
       </div>
     </section>
   );
@@ -378,15 +417,15 @@ const TechStack = () => {
             {SPECIALTIES.map((spec, i) => (
               <div
                 key={i}
-                className="bg-white border border-neutral-200/60 p-8 md:p-10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300"
+                className="bg-white border border-neutral-200/60 p-8 md:p-10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:bg-[#ff5500] hover:border-[#ff5500] hover:-translate-y-1 transition-all duration-300 group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-neutral-100 flex items-center justify-center mb-8">
-                  <spec.icon className="w-6 h-6 text-neutral-600" strokeWidth={1.5} />
+                <div className="w-14 h-14 rounded-2xl bg-neutral-100 group-hover:bg-white/20 flex items-center justify-center mb-8 transition-colors duration-300">
+                  <spec.icon className="w-6 h-6 text-neutral-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-black mb-3 tracking-tight">
+                <h3 className="text-xl md:text-2xl font-bold text-black group-hover:text-white mb-3 tracking-tight transition-colors duration-300">
                   {spec.title}
                 </h3>
-                <p className="text-neutral-500 font-medium leading-relaxed">
+                <p className="text-neutral-500 group-hover:text-white/80 font-medium leading-relaxed transition-colors duration-300">
                   {spec.skills}
                 </p>
               </div>

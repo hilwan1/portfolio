@@ -52,7 +52,7 @@ export default function LinksPage() {
             />
           </div>
           <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">Mohammad Hilwan</h1>
-          <p className="text-neutral-400 font-mono text-xs md:text-sm tracking-wider uppercase">Full-Stack Web Developer</p>
+          <p className="text-neutral-400 font-mono text-xs md:text-sm tracking-wider uppercase">Full-Stack Web Developer & Graphic Design Logo</p>
 
           <div className="flex gap-4 mt-6">
             <a href="https://www.instagram.com/onedesignnn" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-12 h-12 flex items-center justify-center rounded-full bg-[#111111] border border-neutral-800 hover:bg-[#ff5500] hover:border-[#ff5500] hover:-translate-y-1 transition-all shadow-lg text-lg">
@@ -73,8 +73,8 @@ export default function LinksPage() {
               target="_blank"
               rel="noopener noreferrer"
               className={`group relative flex items-center w-full p-4 rounded-[2rem] border overflow-hidden transition-all duration-300 animate-fadeUp ${item.primary
-                  ? 'bg-[#ff5500] border-[#ff5500] text-white hover:bg-[#e64d00] hover:-translate-y-1 shadow-[0_4px_24px_rgba(255,85,0,0.3)]'
-                  : 'bg-[#111111] border-neutral-800 hover:border-[#ff5500]/50 hover:bg-[#1a1a1a] hover:-translate-y-1 shadow-lg'
+                ? 'bg-[#ff5500] border-[#ff5500] text-white hover:bg-[#e64d00] hover:-translate-y-1 shadow-[0_4px_24px_rgba(255,85,0,0.3)]'
+                : 'bg-[#111111] border-neutral-800 hover:border-[#ff5500]/50 hover:bg-[#1a1a1a] hover:-translate-y-1 shadow-lg'
                 }`}
               style={{ animationDelay: `${0.1 * (index + 1)}s` }}
             >

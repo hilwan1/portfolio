@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Project } from '@/lib/projects'
+import { Eye } from 'lucide-react'
 
 interface Props {
   project: Project
@@ -59,7 +60,11 @@ export default function ProjectCard({ project, index = 0 }: Props) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-[#ff5500] flex items-center justify-center text-white transform scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 shadow-lg shadow-[#ff5500]/30">
+              <Eye className="w-6 h-6" strokeWidth={2} />
+            </div>
+          </div>
         </div>
         <div className="flex-1 flex flex-col px-2" style={{ transform: 'translateZ(10px)' }}>
           <h3 className="text-xl font-bold text-white mb-2 leading-tight">{project.title}</h3>

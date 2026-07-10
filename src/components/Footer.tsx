@@ -53,10 +53,23 @@ export default function Footer() {
             rel="noopener noreferrer" 
             className="group relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-[#ff5500] hover:bg-[#e64d00] flex items-center justify-center transition-all duration-300 shadow-[0_0_50px_rgba(255,85,0,0.15)] hover:shadow-[0_0_80px_rgba(255,85,0,0.3)] hover:scale-105"
           >
-            <ArrowUpRight className="w-10 h-10 md:w-12 md:h-12 text-white group-hover:rotate-45 transition-transform duration-300" strokeWidth={2.5} />
+            <ArrowUpRight className="w-10 h-10 md:w-12 md:h-12 text-white animate-footer-wiggle transition-transform duration-300" strokeWidth={2.5} />
           </a>
         </div>
       </FooterFadeIn>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes footer-arrow-wiggle {
+          0%, 100% { transform: rotate(45deg); }
+          20% { transform: rotate(20deg); }
+          40% { transform: rotate(65deg); }
+          60% { transform: rotate(30deg); }
+          80% { transform: rotate(55deg); }
+        }
+        .group:hover .animate-footer-wiggle {
+          animation: footer-arrow-wiggle 0.8s ease-in-out infinite;
+        }
+      `}} />
 
       <FooterFadeIn delay={300}>
         <div className="max-w-7xl mx-auto mt-24 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-neutral-900 pt-8">
