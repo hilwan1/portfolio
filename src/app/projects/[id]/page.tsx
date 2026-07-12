@@ -3,7 +3,13 @@ import Link from 'next/link'
 import { projects, categoryMeta } from '@/lib/projects'
 import { Metadata } from 'next'
 import ProjectGallery from '@/components/ProjectGallery'
-import { ArrowLeft, Send } from 'lucide-react'
+import { ArrowLeft, Send, Layers, Code2, Server } from 'lucide-react'
+
+const iconMap = {
+  layers: Layers,
+  code: Code2,
+  server: Server,
+}
 
 interface PageProps {
   params: Promise<{
@@ -62,7 +68,10 @@ export default async function ProjectDetail(props: PageProps) {
           
           <div className="flex flex-wrap gap-3">
             <span className="inline-flex items-center gap-2 border border-neutral-800 rounded-full bg-[#111111] text-white px-4 py-2 font-mono text-xs font-semibold shadow-md">
-              <i className={meta.icon} style={{ color: meta.color }} aria-hidden="true" />
+              {(() => {
+                const Icon = iconMap[meta.icon as keyof typeof iconMap]
+                return Icon ? <Icon className="w-4 h-4" style={{ color: meta.color }} aria-hidden="true" /> : null
+              })()}
               {meta.label}
             </span>
             <span className="inline-flex items-center border border-neutral-800 rounded-full bg-[#111111] text-neutral-400 px-4 py-2 font-mono text-xs font-semibold shadow-md">

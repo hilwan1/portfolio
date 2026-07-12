@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
 }
 
 @layer base {
@@ -44,10 +46,10 @@
     --grad-hero-bg:  linear-gradient(135deg, #111111 0%, #0a0a0a 100%);
 
     /* Typography */
-    --font-body:    'Inter', sans-serif;
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-serif:   'Playfair Display', Georgia, serif;
-    --font-mono:    'DM Mono', 'Space Grotesk', monospace;
+    --font-body:    var(--font-sans);
+    --font-display: var(--font-display);
+    --font-serif:   var(--font-serif);
+    --font-mono:    var(--font-mono);
 
     /* Spacing */
     --space-xs:  0.25rem;

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { projects } from '@/lib/projects';
 import ProjectCard from '@/components/ProjectCard';
 import {
@@ -229,10 +230,13 @@ const Hero = () => {
           {/* Background Photo with Blur/Gradient Effect */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[700px] aspect-square pointer-events-none z-0">
             <div className="absolute inset-0 bg-gradient-to-t from-[#1a0000] via-transparent to-transparent z-10 rounded-full"></div>
-            <img
+            <Image
               src="/foto-gue.png"
               alt="Background Silhouette"
-              className="w-full h-full object-cover object-top opacity-70 mix-blend-overlay blur-[1px] rounded-full"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 700px"
+              className="object-cover object-top opacity-70 mix-blend-overlay blur-[1px] rounded-full"
             />
           </div>
 
@@ -348,7 +352,7 @@ const AboutMe = () => {
       <div className="max-w-5xl mx-auto text-center">
         <FadeIn>
           <div className="flex flex-col items-center gap-4 mb-10">
-            <p className="text-sm font-bold tracking-widest uppercase text-neutral-400">Let's Connect</p>
+            <p className="text-sm font-bold tracking-widest uppercase text-neutral-600">Let's Connect</p>
             <div className="flex items-center gap-4">
               <a href="https://instagram.com/mohhilwan" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-[#ff5500] hover:border-[#ff5500] hover:text-white transition-all text-neutral-600" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
@@ -387,14 +391,14 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-16 px-6 w-full bg-[#ff5500]">
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-white/20">
+    <section className="py-16 px-6 w-full bg-neutral-50 border-y border-neutral-200">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-neutral-200">
         {statsData.map((stat, index) => (
           <FadeIn key={index} delay={index * 150} className="flex flex-col items-center justify-center text-center py-6 md:py-0 px-4 group">
-            <h3 className="text-5xl md:text-6xl font-bold text-white mb-3 tracking-tighter group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+            <h3 className="text-5xl md:text-6xl font-bold text-[#ff5500] mb-3 tracking-tighter group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
               <AnimatedCounter end={stat.value} suffix={stat.suffix} />
             </h3>
-            <p className="text-white/90 text-xs md:text-sm font-semibold uppercase tracking-widest leading-relaxed max-w-[150px]">{stat.label}</p>
+            <p className="text-neutral-600 text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed max-w-[150px]">{stat.label}</p>
           </FadeIn>
         ))}
       </div>
@@ -485,7 +489,7 @@ const TestimonialsSlider = () => {
         <FadeIn>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <p className="text-[#ff5500] text-sm font-bold tracking-widest uppercase mb-3">Apa Kata Mereka</p>
+              <p className="text-[#cc4400] text-sm font-bold tracking-widest uppercase mb-3">Apa Kata Mereka</p>
               <h2 className="text-4xl md:text-6xl font-bold text-black tracking-tight max-w-2xl">
                 Kepercayaan Klien Adalah Prioritas Utama.
               </h2>
@@ -548,6 +552,7 @@ const AIChatbot = () => {
   return (
     <Link
       href="/chat"
+      aria-label="Tanya AI Chatbot"
       className="fixed bottom-6 right-6 w-14 h-14 bg-[#ff5500] rounded-full flex items-center justify-center shadow-lg shadow-[#ff5500]/30 text-white hover:scale-110 transition-transform z-50 block"
     >
       <Bot className="w-6 h-6" />

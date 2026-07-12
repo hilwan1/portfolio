@@ -3,6 +3,13 @@
 import { useState } from 'react'
 import ProjectCard from '@/components/ProjectCard'
 import { projects, categoryMeta, ProjectCategory } from '@/lib/projects'
+import { Layers, Code2, Server, FolderOpen } from 'lucide-react'
+
+const iconMap = {
+  layers: Layers,
+  code: Code2,
+  server: Server,
+}
 
 type Filter = 'all' | ProjectCategory
 
@@ -57,7 +64,10 @@ export default function ProjectsPage() {
               onClick={() => setActive(f.value)}
               id={`filter-${f.value}`}
             >
-              {f.icon && <i className={f.icon} aria-hidden="true"></i>}
+              {f.icon && (() => {
+                const Icon = iconMap[f.icon as keyof typeof iconMap]
+                return Icon ? <Icon className="w-4 h-4" aria-hidden="true" /> : null
+              })()}
               {f.label}
             </button>
           ))}
@@ -81,7 +91,7 @@ export default function ProjectsPage() {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-20 bg-[#111111] border border-neutral-800 rounded-[2.5rem]">
-            <i className="fa-solid fa-folder-open text-5xl text-neutral-700 mb-4"></i>
+            <FolderOpen className="w-12 h-12 text-neutral-700 mb-4" />
             <p className="text-neutral-400 font-medium">Belum ada proyek di kategori ini.</p>
           </div>
         )}

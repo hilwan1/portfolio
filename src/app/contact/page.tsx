@@ -2,6 +2,13 @@
 
 import { useState, FormEvent } from 'react'
 import styles from './page.module.css'
+import { Mail, Linkedin, Github } from 'lucide-react'
+
+const BehanceIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" {...props}>
+    <path d="M8.2 5c1.8 0 3 .6 3.7 1.8.4.6.6 1.4.6 2.3 0 1.6-.7 2.7-2 3.1 1.6.4 2.4 1.7 2.4 3.5 0 .9-.2 1.7-.7 2.4-.7 1.1-2 1.9-4.2 1.9H2V5h6.2zm-2.4 6h2.2c.6 0 1.1-.1 1.4-.4.3-.3.4-.7.4-1.2s-.1-.8-.4-1.1c-.3-.3-.8-.4-1.4-.4H5.8v3.1zm0 5.6h2.4c.7 0 1.2-.1 1.5-.4.3-.3.5-.8.5-1.3s-.2-.9-.5-1.2c-.3-.3-.8-.4-1.5-.4H5.8v3.3zm13.1-6.1c1.8 0 3 .7 3.6 2 .4.7.5 1.5.5 2.5H15.6c0 1.1.3 1.9.9 2.4.6.5 1.3.8 2.3.8 1.4 0 2.2-.6 2.5-1.8h2.3c-.4 2.1-2.1 3.8-4.8 3.8-2 0-3.6-.6-4.6-1.8-1-1.2-1.5-2.8-1.5-4.8 0-2 1.5-5.9 6.2-5.9zm-2.2 4h4.3c-.1-.7-.3-1.3-.8-1.6-.4-.4-1-.6-1.5-.6s-1.1.2-1.5.6c-.3.3-.5.9-.5 1.6zm.9-6.9h3.3v.9h-3.3v-.9z"/>
+  </svg>
+)
 
 interface FormState {
   name: string
@@ -19,25 +26,25 @@ const initialForm: FormState = {
 
 const contactInfo = [
   {
-    icon: 'fa-regular fa-envelope',
+    icon: Mail,
     label: 'Email',
     value: 'hilwan1.dd@gmail.com',
     href: 'mailto:hilwan1.dd@gmail.com',
   },
   {
-    icon: 'fa-brands fa-linkedin-in',
+    icon: Linkedin,
     label: 'LinkedIn',
     value: 'linkedin.com/in/mohhilwan',
     href: 'https://linkedin.com',
   },
   {
-    icon: 'fa-brands fa-github',
+    icon: Github,
     label: 'GitHub',
     value: 'github.com/hilwan1',
     href: 'https://github.com/hilwan1',
   },
   {
-    icon: 'fa-brands fa-behance',
+    icon: BehanceIcon,
     label: 'Behance',
     value: 'behance.net/mohammadhilwan',
     href: 'https://www.behance.net/mohammadhilwan',
@@ -120,7 +127,7 @@ export default function ContactPage() {
                 {contactInfo.map((item) => (
                   <li key={item.label} className={styles.contactItem}>
                     <span className={styles.contactIcon} aria-hidden="true">
-                      <i className={item.icon}></i>
+                      <item.icon className="w-5 h-5" />
                     </span>
                     <div>
                       <span className={styles.contactLabel}>{item.label}</span>

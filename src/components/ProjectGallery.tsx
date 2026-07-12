@@ -35,8 +35,15 @@ export default function ProjectGallery({ images, title }: ProjectGalleryProps) {
         <div 
           className="relative w-full aspect-video overflow-hidden cursor-zoom-in rounded-3xl border-2 border-neutral-800 bg-[#111111] shadow-xl group"
           onClick={toggleModal} 
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              toggleModal()
+            }
+          }}
           role="button" 
           tabIndex={0}
+          aria-label="Perbesar gambar proyek"
         >
           <Image
             src={images[currentIndex]}

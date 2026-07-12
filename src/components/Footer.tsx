@@ -51,6 +51,7 @@ export default function Footer() {
             href="https://wa.me/6283865157423" 
             target="_blank" 
             rel="noopener noreferrer" 
+            aria-label="Hubungi saya lewat WhatsApp"
             className="group relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-[#ff5500] hover:bg-[#e64d00] flex items-center justify-center transition-all duration-300 shadow-[0_0_50px_rgba(255,85,0,0.15)] hover:shadow-[0_0_80px_rgba(255,85,0,0.3)] hover:scale-105"
           >
             <ArrowUpRight className="w-10 h-10 md:w-12 md:h-12 text-white animate-footer-wiggle transition-transform duration-300" strokeWidth={2.5} />

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { Instagram, Linkedin, ShoppingCart, Zap, ArrowLeft, ExternalLink } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Tautan Layanan & Hubungi Mohammad Hilwan — Jasa Pembuatan Website',
@@ -17,7 +18,7 @@ export default function LinksPage() {
     {
       title: 'ORDER (WhatsApp)',
       url: 'https://wa.me/6283865157423',
-      icon: 'fa-solid fa-cart-shopping',
+      icon: ShoppingCart,
       primary: true
     },
     {
@@ -28,13 +29,13 @@ export default function LinksPage() {
     {
       title: 'FASTWORK',
       url: 'https://fastwork.id/user/mohhilwan',
-      icon: 'fa-solid fa-bolt',
+      icon: Zap,
     },
     {
       title: 'FIVERR',
       url: 'https://www.fiverr.com/mohhilwan',
       iconText: 'fi',
-      iconClass: 'fa-solid fa-f'
+      icon: ExternalLink
     }
   ]
 
@@ -56,10 +57,10 @@ export default function LinksPage() {
 
           <div className="flex gap-4 mt-6">
             <a href="https://www.instagram.com/onedesignnn" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-12 h-12 flex items-center justify-center rounded-full bg-[#111111] border border-neutral-800 hover:bg-[#ff5500] hover:border-[#ff5500] hover:-translate-y-1 transition-all shadow-lg text-lg">
-              <i className="fa-brands fa-instagram"></i>
+              <Instagram className="w-5 h-5" />
             </a>
             <a href="https://www.linkedin.com/in/mohhilwan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-12 h-12 flex items-center justify-center rounded-full bg-[#111111] border border-neutral-800 hover:bg-[#ff5500] hover:border-[#ff5500] hover:-translate-y-1 transition-all shadow-lg text-lg">
-              <i className="fa-brands fa-linkedin-in"></i>
+              <Linkedin className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -80,9 +81,7 @@ export default function LinksPage() {
             >
               <div className={`flex items-center justify-center w-12 h-12 shrink-0 rounded-full bg-[#1a1a1a] text-[#ffaa00] border ${item.primary ? 'border-neutral-700/50' : 'border-neutral-800'} text-lg font-bold group-hover:scale-110 transition-transform`}>
                 {item.icon ? (
-                  <i className={`${item.icon}`}></i>
-                ) : item.iconClass ? (
-                  <i className={`${item.iconClass}`}></i>
+                  <item.icon className="w-5 h-5" />
                 ) : (
                   <span>{item.iconText}</span>
                 )}
@@ -97,7 +96,7 @@ export default function LinksPage() {
         {/* Footer Area of the Links Page */}
         <div className="mt-auto animate-fadeUp" style={{ animationDelay: '0.6s' }}>
           <Link href="/" className="flex items-center gap-2 text-neutral-500 hover:text-[#ff5500] font-semibold text-sm transition-colors">
-            <i className="fa-solid fa-arrow-left"></i> Kembali ke Website
+            <ArrowLeft className="w-4 h-4" /> Kembali ke Website
           </Link>
         </div>
       </div>

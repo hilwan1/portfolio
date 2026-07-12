@@ -15,19 +15,19 @@ export interface Project {
 export const categoryMeta: Record<ProjectCategory, { label: string; icon: string; color: string; desc: string }> = {
   fullstack: {
     label: 'Full-Stack Web App',
-    icon: 'fa-solid fa-layer-group',
+    icon: 'layers',
     color: '#38b6ff',
     desc: 'Aplikasi web dinamis dengan integrasi database, manajemen state, dan logika backend yang kompleks.',
   },
   frontend: {
     label: 'Front-End Development',
-    icon: 'fa-solid fa-code',
+    icon: 'code',
     color: '#a78bfa',
     desc: 'Antarmuka web interaktif yang responsif dan berkinerja tinggi menggunakan framework modern.',
   },
   backend: {
     label: 'Back-End & API',
-    icon: 'fa-solid fa-server',
+    icon: 'server',
     color: '#fb923c',
     desc: 'Pengembangan server, perancangan database, dan integrasi API yang aman dan skalabel.',
   },

@@ -27,10 +27,21 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   if (pathname === '/chat' || pathname === '/links') return null
 
   return (
-    <div className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${isScrolled ? 'pt-4 md:pt-6 px-4' : 'pt-0 px-0'}`}>
+    <div className={`fixed top-0 left-0 right-0 z-[100] flex justify-center transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${isScrolled ? 'pt-4 md:pt-6 px-4' : 'pt-0 px-0'}`}>
       <div className={`relative w-full transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${isScrolled ? 'max-w-4xl' : 'max-w-full'}`}>
         <nav 
           className={`
@@ -55,7 +66,12 @@ export default function Navbar() {
               </Link>
             </div>
 
-            <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-white focus:outline-none">
+            <button 
+              onClick={() => setMenuOpen(!menuOpen)} 
+              className="md:hidden text-white focus:outline-none"
+              aria-label={menuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+              aria-expanded={menuOpen}
+            >
               {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -66,15 +82,29 @@ export default function Navbar() {
           />
         </nav>
 
-        {/* Mobile menu dropdown */}
+        {/* Full-screen mobile menu overlay */}
         <div 
-          className={`md:hidden absolute top-full left-0 right-0 transition-all duration-300 ease-in-out origin-top z-40 ${menuOpen ? 'opacity-100 scale-y-100 translate-y-2' : 'opacity-0 scale-y-0 translate-y-0 pointer-events-none'}`}
+          className={`md:hidden fixed inset-0 w-screen h-screen bg-[#0a0a0a]/98 backdrop-blur-3xl z-[90] flex flex-col justify-center items-center transition-all duration-500 ease-in-out ${menuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-8 pointer-events-none'}`}
         >
-          <div className={`bg-[#111111]/95 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col gap-4 px-6 py-6 ${isScrolled ? 'rounded-[2rem]' : 'rounded-b-[2rem] border-t-0'}`}>
-            <Link href="/#about" onClick={() => setMenuOpen(false)} className="text-base font-medium text-neutral-400 hover:text-white transition-colors">Tentang</Link>
-            <Link href="/#projects" onClick={() => setMenuOpen(false)} className="text-base font-medium text-neutral-400 hover:text-white transition-colors">Karya</Link>
-            <Link href="/#contact" onClick={() => setMenuOpen(false)} className="text-base font-medium text-neutral-400 hover:text-white transition-colors">Kontak</Link>
-            <Link href="/#contact" onClick={() => setMenuOpen(false)} className="bg-[#ff5500] text-white px-6 py-3 rounded-full text-center text-sm font-semibold hover:bg-[#e64d00] transition-colors mt-2">
+          {/* Header inside overlay */}
+          <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-5 max-w-[1400px] mx-auto w-full">
+            <Link href="/" onClick={() => setMenuOpen(false)} className="font-bold text-xl tracking-tighter text-white">
+              MH<span className="text-[#ff5500]">.</span>
+            </Link>
+            <button 
+              onClick={() => setMenuOpen(false)} 
+              className="text-white focus:outline-none"
+              aria-label="Tutup menu navigasi"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          <div className="flex flex-col items-center gap-8 text-center animate-fadeUp">
+            <Link href="/#about" onClick={() => setMenuOpen(false)} className="text-3xl font-bold tracking-tight text-neutral-400 hover:text-white transition-colors uppercase">Tentang</Link>
+            <Link href="/#projects" onClick={() => setMenuOpen(false)} className="text-3xl font-bold tracking-tight text-neutral-400 hover:text-white transition-colors uppercase">Karya</Link>
+            <Link href="/#contact" onClick={() => setMenuOpen(false)} className="text-3xl font-bold tracking-tight text-neutral-400 hover:text-white transition-colors uppercase">Kontak</Link>
+            <Link href="/#contact" onClick={() => setMenuOpen(false)} className="bg-[#ff5500] text-white px-8 py-4 rounded-full text-center text-lg font-bold hover:bg-[#e64d00] transition-colors mt-4 shadow-lg shadow-[#ff5500]/20">
               Hubungi Saya
             </Link>
           </div>
