@@ -548,18 +548,6 @@ const TestimonialsSlider = () => {
   );
 };
 
-const AIChatbot = () => {
-  return (
-    <Link
-      href="/chat"
-      aria-label="Tanya AI Chatbot"
-      className="fixed bottom-6 right-6 w-14 h-14 bg-[#ff5500] rounded-full flex items-center justify-center shadow-lg shadow-[#ff5500]/30 text-white hover:scale-110 transition-transform z-50 block"
-    >
-      <Bot className="w-6 h-6" />
-    </Link>
-  );
-};
-
 export default function PortfolioHome() {
   return (
     <div className="bg-[#0a0a0a] min-h-screen text-white selection:bg-[#ff5500] selection:text-white font-sans overflow-x-hidden">
@@ -571,7 +559,6 @@ export default function PortfolioHome() {
         <Projects />
         <TestimonialsSlider />
       </main>
-      <AIChatbot />
     </div>
   );
 }

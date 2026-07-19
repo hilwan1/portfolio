@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, DM_Mono, Playfair_Display } from 'next/font/googl
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import FloatingWidgets from '@/components/FloatingWidgets'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -96,6 +97,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <FloatingWidgets />
       </body>
     </html>
   )
