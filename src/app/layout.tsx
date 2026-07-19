@@ -76,6 +76,9 @@ export const metadata: Metadata = {
     description: 'Solusi pembuatan website profesional, aplikasi custom, dan sistem informasi manajemen berbasis Laravel, CodeIgniter, & Next.js.',
     images: ['/foto-hero.jpeg'],
   },
+  verification: {
+    google: 'IatQjsOhMKECaqrpw3Yx3-MRHgOEJ08gT59PnNvsy5Y',
+  },
 }
 
 export default function RootLayout({
