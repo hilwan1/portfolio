@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { projects, categoryMeta } from '@/lib/projects'
 import { Metadata } from 'next'
 import ProjectGallery from '@/components/ProjectGallery'
-import { ArrowLeft, Send, Layers, Code2, Server } from 'lucide-react'
+import { ArrowLeft, Send, Layers, Code2, Server, ExternalLink } from 'lucide-react'
 
 const iconMap = {
   layers: Layers,
@@ -105,7 +105,17 @@ export default async function ProjectDetail(props: PageProps) {
               </div>
             </div>
             
-            <div className="pt-4 border-t border-neutral-900">
+            <div className="pt-4 border-t border-neutral-900 flex flex-wrap gap-4">
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-white hover:bg-neutral-200 text-black px-8 py-4 rounded-full text-sm font-bold transition-all hover:-translate-y-1"
+                >
+                  Kunjungi Website <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
               <Link href="/#contact" className="inline-flex items-center gap-3 bg-[#ff5500] hover:bg-[#e64d00] text-white px-8 py-4 rounded-full text-sm font-bold transition-all shadow-[0_0_30px_rgba(255,85,0,0.2)] hover:shadow-[0_0_40px_rgba(255,85,0,0.4)] hover:-translate-y-1">
                 Hubungi Saya <Send className="w-4 h-4 ml-1" />
               </Link>

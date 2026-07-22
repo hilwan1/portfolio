@@ -10,6 +10,7 @@ export interface Project {
   tags: string[]
   year: number
   featured?: boolean
+  link?: string
 }
 
 export const categoryMeta: Record<ProjectCategory, { label: string; icon: string; color: string; desc: string }> = {
@@ -35,7 +36,21 @@ export const categoryMeta: Record<ProjectCategory, { label: string; icon: string
 
 export const projects: Project[] = [
   {
-    id: 1,
+    id: 12,
+    title: 'Penerbit Berkisah',
+    description: 'Penerbit Berkisah merupakan penerbit mayor yang menerbitkan buku-buku berkualitas bagi pembaca anak-anak, remaja, hingga dewasa. ',
+    category: 'fullstack',
+    image: '/web/penerbitberkisah.jpg',
+    gallery: [
+      '/web/penerbitberkisah.jpg'
+    ],
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP'],
+    year: 2026,
+    featured: true,
+    link: 'https://penerbitberkisah.com',
+  },
+  {
+    id: 11,
     title: 'Abadi Rent',
     description: 'Sistem informasi persewaan mobil (car rental) berbasis web yang terintegrasi dengan manajemen inventaris armada kendaraan, perhitungan harga otomatis, dan sistem invoicing untuk mempercepat proses administrasi.',
     category: 'fullstack',
@@ -48,98 +63,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 2,
-    title: 'Belajar Bersama BBPMP',
-    description: 'Platform digital BBPMP Provinsi Jawa Barat untuk pendaftaran moving class, parenting, penguatan PTK, dan MOMAHE (Mobil Mainan Hebat) untuk pendidikan anak usia dini secara terpadu.',
-    category: 'fullstack',
-    image: '/web/belajarbersamabbpmp.jpg',
-    gallery: [
-      '/web/belajarbersamabbpmp.jpg'
-    ],
-    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'Layanan Publik'],
-    year: 2025,
-    featured: true,
-  },
-  {
-    id: 3,
-    title: 'MindCare Chatbot',
-    description: 'Aplikasi web asisten kesehatan mental interaktif (chatbot) berbasis kecerdasan buatan untuk membantu konseling psikologis awal secara real-time dan memberikan rujukan informasi medis terpercaya.',
-    category: 'fullstack',
-    image: '/web/mindcarechatbot.jpg',
-    gallery: [
-      '/web/mindcarechatbot.jpg'
-    ],
-    tags: ['CodeIgniter 4', 'MySQL', 'Bootstrap', 'AI API', 'Chatbot'],
-    year: 2025,
-    featured: true,
-  },
-  {
-    id: 4,
-    title: 'Design Studio Portfolio',
-    description: 'Website portofolio interaktif dan modern yang dirancang khusus untuk agensi desain grafis guna memamerkan karya kreatif mereka dengan tata letak minimalis dan estetika tinggi.',
-    category: 'frontend',
-    image: '/web/portofoliodesign.jpg',
-    gallery: [
-      '/web/portofoliodesign.jpg'
-    ],
-    tags: ['Next.js', 'React', 'Tailwind CSS', 'Responsive'],
-    year: 2026,
-    featured: true,
-  },
-  {
-    id: 5,
-    title: 'SIMANTEN BBPMP Jawa Barat',
-    description: 'Sistem Manajemen Terintegrasi BMN (Barang Milik Negara) BBPMP Provinsi Jawa Barat untuk mengelola persediaan barang, inventaris aset kantor, serta permintaan peminjaman armada kendaraan dinas secara otomatis.',
-    category: 'fullstack',
-    image: '/web/SIMANTEN.jpg',
-    gallery: [
-      '/web/SIMANTEN.jpg'
-    ],
-    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'Manajemen Aset'],
-    year: 2025,
-    featured: true,
-  },
-  {
-    id: 6,
-    title: 'Dashboard SIMPEG BBPMP Jabar',
-    description: 'Sistem Informasi Manajemen Kepegawaian internal BBPMP Provinsi Jawa Barat untuk mempermudah pemantauan rekam data staf, manajemen absensi, pengarsipan berkas dinas, dan visualisasi absensi pegawai.',
-    category: 'frontend',
-    image: '/web/DashboardSIMPEG.jpg',
-    gallery: [
-      '/web/DashboardSIMPEG.jpg'
-    ],
-    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'SIMPEG'],
-    year: 2025,
-    featured: true,
-  },
-  {
-    id: 7,
-    title: 'E-Commerce Warung Pacitan',
-    description: 'Platform toko online (e-commerce) lokal untuk pemasaran kuliner dan kerajinan khas Pacitan, dilengkapi sistem manajemen katalog produk, keranjang belanja terintegrasi, dan kalkulasi total ongkos pengiriman.',
-    category: 'fullstack',
-    image: '/web/ecommercewarungpacitan.jpg',
-    gallery: [
-      '/web/ecommercewarungpacitan.jpg'
-    ],
-    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'E-Commerce'],
-    year: 2025,
-    featured: true,
-  },
-  {
-    id: 8,
-    title: 'Hook Agency Dashboard',
-    description: 'Dashboard analitik interaktif untuk memantau performa agensi pemasaran kreatif, melacak target bulanan, mengelola data klien (CRM), serta memantau status pengerjaan proyek secara berkala.',
-    category: 'frontend',
-    image: '/web/DashboardHookAgency.jpg',
-    gallery: [
-      '/web/DashboardHookAgency.jpg'
-    ],
-    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'Dashboard'],
-    year: 2026,
-    featured: true,
-  },
-  {
-    id: 9,
+    id: 10,
     title: 'Astha E-Commerce Hub',
     description: 'Website e-commerce modern dengan halaman beranda yang dinamis dan katalog produk interaktif untuk meningkatkan pengalaman berbelanja pengguna secara intuitif.',
     category: 'fullstack',
@@ -153,7 +77,20 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 10,
+    id: 9,
+    title: 'Task Checklist Dashboard',
+    description: 'Aplikasi manajemen tugas harian yang intuitif dengan visualisasi tingkat kemajuan pekerjaan (progress tracking), fitur checklist interaktif, serta pengorganisasian tugas berdasarkan prioritas.',
+    category: 'frontend',
+    image: '/web/DashboardTaskChecklist.jpg',
+    gallery: [
+      '/web/DashboardTaskChecklist.jpg'
+    ],
+    tags: ['Laravel', 'PHP', 'Bootstrap', 'State Management'],
+    year: 2025,
+    featured: true,
+  },
+  {
+    id: 8,
     title: 'CEKResiIn Portal',
     description: 'Aplikasi web pencarian dan pelacakan resi ekspedisi pengiriman paket terintegrasi (courier tracking portal) yang menghubungkan API data logistik pihak ketiga secara real-time.',
     category: 'fullstack',
@@ -166,15 +103,93 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 11,
-    title: 'Task Checklist Dashboard',
-    description: 'Aplikasi manajemen tugas harian yang intuitif dengan visualisasi tingkat kemajuan pekerjaan (progress tracking), fitur checklist interaktif, serta pengorganisasian tugas berdasarkan prioritas.',
+    id: 7,
+    title: 'Hook Agency Dashboard',
+    description: 'Dashboard analitik interaktif untuk memantau performa agensi pemasaran kreatif, melacak target bulanan, mengelola data klien (CRM), serta memantau status pengerjaan proyek secara berkala.',
     category: 'frontend',
-    image: '/web/DashboardTaskChecklist.jpg',
+    image: '/web/DashboardHookAgency.jpg',
     gallery: [
-      '/web/DashboardTaskChecklist.jpg'
+      '/web/DashboardHookAgency.jpg'
     ],
-    tags: ['Laravel', 'PHP', 'Bootstrap', 'State Management'],
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'Dashboard'],
+    year: 2026,
+    featured: true,
+  },
+  {
+    id: 6,
+    title: 'E-Commerce Warung Pacitan',
+    description: 'Platform toko online (e-commerce) lokal untuk pemasaran kuliner dan kerajinan khas Pacitan, dilengkapi sistem manajemen katalog produk, keranjang belanja terintegrasi, dan kalkulasi total ongkos pengiriman.',
+    category: 'fullstack',
+    image: '/web/ecommercewarungpacitan.jpg',
+    gallery: [
+      '/web/ecommercewarungpacitan.jpg'
+    ],
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'E-Commerce'],
+    year: 2025,
+    featured: true,
+  },
+  {
+    id: 5,
+    title: 'Dashboard SIMPEG BBPMP Jabar',
+    description: 'Sistem Informasi Manajemen Kepegawaian internal BBPMP Provinsi Jawa Barat untuk mempermudah pemantauan rekam data staf, manajemen absensi, pengarsipan berkas dinas, dan visualisasi absensi pegawai.',
+    category: 'frontend',
+    image: '/web/DashboardSIMPEG.jpg',
+    gallery: [
+      '/web/DashboardSIMPEG.jpg'
+    ],
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'SIMPEG'],
+    year: 2025,
+    featured: true,
+  },
+  {
+    id: 4,
+    title: 'SIMANTEN BBPMP Jawa Barat',
+    description: 'Sistem Manajemen Terintegrasi BMN (Barang Milik Negara) BBPMP Provinsi Jawa Barat untuk mengelola persediaan barang, inventaris aset kantor, serta permintaan peminjaman armada kendaraan dinas secara otomatis.',
+    category: 'fullstack',
+    image: '/web/SIMANTEN.jpg',
+    gallery: [
+      '/web/SIMANTEN.jpg'
+    ],
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'Manajemen Aset'],
+    year: 2025,
+    featured: true,
+  },
+  {
+    id: 3,
+    title: 'Design Studio Portfolio',
+    description: 'Website portofolio interaktif dan modern yang dirancang khusus untuk agensi desain grafis guna memamerkan karya kreatif mereka dengan tata letak minimalis dan estetika tinggi.',
+    category: 'frontend',
+    image: '/web/portofoliodesign.jpg',
+    gallery: [
+      '/web/portofoliodesign.jpg'
+    ],
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'Responsive'],
+    year: 2026,
+    featured: true,
+  },
+  {
+    id: 2,
+    title: 'MindCare Chatbot',
+    description: 'Aplikasi web asisten kesehatan mental interaktif (chatbot) berbasis kecerdasan buatan untuk membantu konseling psikologis awal secara real-time dan memberikan rujukan informasi medis terpercaya.',
+    category: 'fullstack',
+    image: '/web/mindcarechatbot.jpg',
+    gallery: [
+      '/web/mindcarechatbot.jpg'
+    ],
+    tags: ['CodeIgniter 4', 'MySQL', 'Bootstrap', 'AI API', 'Chatbot'],
+    year: 2025,
+    featured: true,
+  },
+  {
+    id: 1,
+    title: 'Belajar Bersama BBPMP',
+    description: 'Platform digital BBPMP Provinsi Jawa Barat untuk pendaftaran moving class, parenting, penguatan PTK, dan MOMAHE (Mobil Mainan Hebat) untuk pendidikan anak usia dini secara terpadu.',
+    category: 'fullstack',
+    image: '/web/belajarbersamabbpmp.jpg',
+    gallery: [
+      '/web/belajarbersamabbpmp.jpg'
+    ],
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'Layanan Publik'],
     year: 2025,
     featured: true,
   },

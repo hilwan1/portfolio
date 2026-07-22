@@ -384,21 +384,21 @@ const AboutMe = () => {
 
 const Stats = () => {
   const statsData = [
-    { label: "Projects Completed", value: 12, suffix: "+" },
+    { label: "Projects Completed", value: 13, suffix: "+" },
     { label: "Happy Clients", value: 6, suffix: "+" },
     { label: "Years Experience", value: 1, suffix: "+" },
     { label: "Lighthouse Score", value: 99, suffix: "+" },
   ];
 
   return (
-    <section className="py-16 px-6 w-full bg-neutral-50 border-y border-neutral-200">
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-neutral-200">
+    <section className="py-16 px-6 w-full bg-[#ff5500]">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         {statsData.map((stat, index) => (
           <FadeIn key={index} delay={index * 150} className="flex flex-col items-center justify-center text-center py-6 md:py-0 px-4 group">
-            <h3 className="text-5xl md:text-6xl font-bold text-[#ff5500] mb-3 tracking-tighter group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+            <h3 className="text-5xl md:text-6xl font-bold text-white mb-3 tracking-tighter group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
               <AnimatedCounter end={stat.value} suffix={stat.suffix} />
             </h3>
-            <p className="text-neutral-600 text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed max-w-[150px]">{stat.label}</p>
+            <p className="text-white/90 text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed max-w-[150px]">{stat.label}</p>
           </FadeIn>
         ))}
       </div>
