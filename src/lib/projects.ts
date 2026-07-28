@@ -61,6 +61,7 @@ export const projects: Project[] = [
     tags: ['Next JS', 'PostgreSQL', 'Tailwind', 'Typescript', 'Invoicing System'],
     year: 2026,
     featured: true,
+    link: 'https://abadirent.vercel.app/',
   },
   {
     id: 10,
