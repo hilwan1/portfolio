@@ -222,94 +222,97 @@ const TESTIMONIALS = [
 
 const Hero = () => {
   return (
-    <section className="w-full bg-[#0a0a0a]">
-      <FadeIn>
-        {/* Full-width container with extreme bottom radius */}
-        <div className="relative w-full min-h-[95vh] lg:min-h-screen rounded-b-[3rem] md:rounded-b-[5rem] bg-gradient-to-br from-[#ff3300] via-[#991100] to-[#1a0000] overflow-hidden flex flex-col pt-32 pb-16 md:pb-20 px-6 md:px-12 lg:px-20">
+    <>
+      <section className="w-full bg-[#0a0a0a] p-0 md:p-6 lg:p-8 pb-3 md:pb-0 min-h-[100dvh] md:h-screen box-border md:overflow-hidden flex flex-col justify-start md:justify-center">
+        <FadeIn className="w-full h-full flex flex-col justify-start md:justify-center">
+          {/* Boxed container on desktop, full-width extending below chat bubble on mobile */}
+          <div className="relative w-full min-h-[calc(100dvh-0.75rem)] md:min-h-0 md:h-full rounded-t-none md:rounded-t-[2rem] rounded-b-[2.5rem] md:rounded-b-[2rem] bg-gradient-to-br from-[#ff7700] via-[#e63900] to-[#cc2200] overflow-hidden flex flex-col justify-between pt-18 sm:pt-22 md:pt-32 pb-6 sm:pb-8 md:pb-12 px-5 sm:px-6 md:px-12 lg:px-20">
 
-          {/* Background Photo with Blur/Gradient Effect */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[700px] aspect-square pointer-events-none z-0">
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a0000] via-transparent to-transparent z-10 rounded-full"></div>
-            <Image
-              src="/foto-gue.png"
-              alt="Background Silhouette"
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 700px"
-              className="object-cover object-top opacity-70 mix-blend-overlay blur-[1px] rounded-full"
-            />
-          </div>
-
-          <div className="flex-1 w-full max-w-[1400px] mx-auto flex flex-col justify-center relative z-10">
-            {/* Top Left Name Intro */}
-            <div className="mb-6 md:mb-12">
-              <p className="text-white/80 font-medium tracking-wide uppercase text-xs md:text-sm mb-2">Halo, Saya</p>
-              <h1 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Mohammad Hilwan<span className="text-[#ffaa00]">.</span></h1>
+            {/* Background Photo with Blur/Gradient Effect */}
+            <div className="absolute top-[48%] sm:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px] sm:max-w-[750px] aspect-square pointer-events-none z-0">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#cc2200]/80 via-transparent to-transparent z-10 rounded-full"></div>
+              <Image
+                src="/foto-gue.png"
+                alt="Background Silhouette"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 750px"
+                className="object-cover object-top opacity-70 mix-blend-overlay blur-[1px] rounded-full"
+              />
             </div>
 
-            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 lg:gap-24">
-              {/* Massive Tagline Area */}
-              <div className="flex-1">
-                <h2 className="text-5xl sm:text-7xl lg:text-[7rem] font-bold text-white tracking-tighter leading-[0.9]">
-                  Full-Stack <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">Developer</span>
-                </h2>
+            <div className="flex-1 w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 sm:gap-8 lg:gap-24 relative z-10 my-auto">
+              {/* Top Left Name Intro & Tagline (Pushed Higher Up on Mobile) */}
+              <div className="pt-2 sm:pt-4 md:pt-0 flex-1">
+                <div className="mb-3 sm:mb-4 md:mb-12">
+                  <p className="text-white/80 font-medium tracking-wide uppercase text-xs sm:text-sm mb-1 sm:mb-2">Halo, Saya</p>
+                  <h1 className="text-2xl sm:text-3xl md:text-3xl font-bold text-white tracking-tight">Mohammad Hilwan<span className="text-[#ffaa00]">.</span></h1>
+                </div>
+
+                <div>
+                  <h2 className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[7rem] font-bold text-white tracking-tighter leading-[0.95] sm:leading-[0.9]">
+                    Full-Stack <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">Developer</span>
+                  </h2>
+                </div>
               </div>
 
-              {/* Right Side Description */}
-              <div className="w-full lg:w-[400px] flex flex-col gap-8">
-                <p className="text-white/80 text-lg md:text-xl font-medium leading-snug">
+              {/* Right Side Description & Buttons (Side-by-side on desktop, pushed down on mobile) */}
+              <div className="w-full lg:w-[400px] flex flex-col gap-3 sm:gap-6 md:gap-8 mt-12 sm:mt-16 lg:mt-0">
+                <p className="text-white/80 text-sm sm:text-lg md:text-xl font-medium leading-snug">
                   Let's collaborate to build something great.
                 </p>
-                <div className="flex flex-wrap gap-4 mt-2">
-                  <a href="#projects" className="bg-white text-black px-8 py-4 rounded-full text-sm font-bold hover:bg-neutral-200 transition-colors flex items-center gap-2 group">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-4">
+                  <a href="#projects" className="bg-white text-black px-5 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-bold hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2 group">
                     Lihat Proyek <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
-                  <a href="/CV-ATS-Mohammad-Hilwan.pdf" download="CV-ATS-Mohammad-Hilwan.pdf" className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full text-sm font-bold hover:bg-white/10 transition-colors flex items-center gap-2">
+                  <a href="/CV-ATS-Mohammad-Hilwan.pdf" download="CV-ATS-Mohammad-Hilwan.pdf" className="bg-transparent border border-white/30 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-bold hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
                     <Download className="w-4 h-4" /> Download CV
                   </a>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Bottom Columns (Services/Focus Area) inside Hero */}
-          <div className="w-full max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mt-20 border-t border-white/10 pt-8 z-10">
-            <div>
-              <p className="text-[#ffaa00] text-xs font-bold mb-3 tracking-widest">#01</p>
-              <p className="text-white/90 text-sm font-medium">Web Development</p>
-            </div>
-            <div>
-              <p className="text-[#ffaa00] text-xs font-bold mb-3 tracking-widest">#02</p>
-              <p className="text-white/90 text-sm font-medium">Back-end & Database</p>
-            </div>
-            <div>
-              <p className="text-[#ffaa00] text-xs font-bold mb-3 tracking-widest">#03</p>
-              <p className="text-white/90 text-sm font-medium">Integrasi API</p>
-            </div>
-            <div>
-              <p className="text-[#ffaa00] text-xs font-bold mb-3 tracking-widest">#04</p>
-              <p className="text-white/90 text-sm font-medium">Arsitektur Skalabel</p>
+            {/* Bottom Columns (Services/Focus Area) inside Hero */}
+            <div className="w-full max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-12 mt-6 sm:mt-10 md:mt-16 border-t border-white/10 pt-4 sm:pt-6 md:pt-8 z-10">
+              <div>
+                <p className="text-[#ffaa00] text-[10px] sm:text-xs font-bold mb-1 sm:mb-2 tracking-widest">#01</p>
+                <p className="text-white/90 text-xs sm:text-sm font-medium">Web Development</p>
+              </div>
+              <div>
+                <p className="text-[#ffaa00] text-[10px] sm:text-xs font-bold mb-1 sm:mb-2 tracking-widest">#02</p>
+                <p className="text-white/90 text-sm font-medium">Back-end &amp; Database</p>
+              </div>
+              <div>
+                <p className="text-[#ffaa00] text-[10px] sm:text-xs font-bold mb-1 sm:mb-2 tracking-widest">#03</p>
+                <p className="text-white/90 text-xs sm:text-sm font-medium">Integrasi API</p>
+              </div>
+              <div>
+                <p className="text-[#ffaa00] text-[10px] sm:text-xs font-bold mb-1 sm:mb-2 tracking-widest">#04</p>
+                <p className="text-white/90 text-xs sm:text-sm font-medium">Arsitektur Skalabel</p>
+              </div>
             </div>
           </div>
-        </div>
-      </FadeIn>
+        </FadeIn>
+      </section>
 
-      {/* Marquee-style Tech Stack Strip directly below the Hero curve */}
-      <FadeIn delay={300}>
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
-          <p className="text-neutral-500 text-xs md:text-sm font-medium uppercase tracking-wider text-center md:text-left">
-            Teknologi Pilihan <br className="hidden md:block" />Dalam Membangun Sistem
-          </p>
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-8 md:gap-16 opacity-70 grayscale">
-            <span className="text-white font-bold text-xl flex items-center gap-2"><LayoutTemplate className="w-6 h-6" /> Laravel</span>
-            <span className="text-white font-bold text-xl flex items-center gap-2"><Code2 className="w-6 h-6" /> Node.js</span>
-            <span className="text-white font-bold text-xl flex items-center gap-2"><Server className="w-6 h-6" /> Next.js</span>
-            <span className="text-white font-bold text-xl flex items-center gap-2"><LayoutTemplate className="w-6 h-6" /> React</span>
+      {/* Tech Stack Strip - separate section below hero */}
+      <section className="w-full bg-[#0a0a0a]">
+        <FadeIn delay={300}>
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <p className="text-neutral-400 text-xs md:text-sm font-medium uppercase tracking-wider text-center md:text-left">
+              Teknologi Pilihan <br className="hidden md:block" />Dalam Membangun Sistem
+            </p>
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-8 md:gap-14">
+              <span className="text-white font-bold text-lg flex items-center gap-2"><LayoutTemplate className="w-5 h-5 text-white" /> Laravel</span>
+              <span className="text-white font-bold text-lg flex items-center gap-2"><Code2 className="w-5 h-5 text-white" /> Node.js</span>
+              <span className="text-white font-bold text-lg flex items-center gap-2"><Server className="w-5 h-5 text-white" /> Next.js</span>
+              <span className="text-white font-bold text-lg flex items-center gap-2"><LayoutTemplate className="w-5 h-5 text-white" /> React</span>
+            </div>
           </div>
-        </div>
-      </FadeIn>
-    </section>
+        </FadeIn>
+      </section>
+    </>
   );
 };
 

@@ -58,7 +58,7 @@ export const projects: Project[] = [
     gallery: [
       '/web/abadirent.jpg'
     ],
-    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP', 'Invoicing System'],
+    tags: ['Next JS', 'PostgreSQL', 'Tailwind', 'Typescript', 'Invoicing System'],
     year: 2026,
     featured: true,
   },

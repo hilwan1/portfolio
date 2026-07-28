@@ -41,18 +41,15 @@ export default function Navbar() {
   if (pathname === '/chat' || pathname === '/links') return null
 
   return (
-    <div className={`fixed top-0 left-0 right-0 z-[100] flex justify-center transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${isScrolled ? 'pt-4 md:pt-6 px-4' : 'pt-0 px-0'}`}>
-      <div className={`relative w-full transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${isScrolled ? 'max-w-4xl' : 'max-w-full'}`}>
+    <div className={`fixed left-0 right-0 z-[100] flex justify-center transition-all duration-500 ease-out px-4 ${isScrolled ? 'top-2 md:top-4' : 'top-4 md:top-10 lg:top-12'}`}>
+      <div className={`relative w-full transition-all duration-500 max-w-4xl`}>
         <nav 
           className={`
-            relative transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden w-full
-            ${isScrolled 
-              ? 'bg-[#111111]/80 backdrop-blur-xl border border-white/10 shadow-2xl rounded-full' 
-              : 'bg-[#0a0a0a]/95 backdrop-blur-md border border-transparent border-b-neutral-900 rounded-none'
-            }
+            relative transition-all duration-500 overflow-hidden w-full bg-[#111111]/80 backdrop-blur-xl border border-white/10 rounded-full
+            ${isScrolled ? 'shadow-[0_8px_30px_rgb(0,0,0,0.5)]' : 'shadow-lg'}
           `}
         >
-          <div className={`flex items-center justify-between transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] mx-auto ${isScrolled ? 'px-6 py-3 md:px-8 md:py-4' : 'px-6 md:px-12 py-5 max-w-[1400px] w-full'}`}>
+          <div className={`flex items-center justify-between transition-all duration-300 mx-auto px-6 py-3 md:px-8 md:py-4`}>
             <Link href="/" className="font-bold text-xl md:text-2xl tracking-tighter text-white">
               MH<span className="text-[#ff5500]">.</span>
             </Link>
@@ -61,7 +58,7 @@ export default function Navbar() {
               <Link href="/#about" className="text-sm font-light uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Tentang</Link>
               <Link href="/#projects" className="text-sm font-light uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Karya</Link>
               <Link href="/#contact" className="text-sm font-light uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Kontak</Link>
-              <Link href="/#contact" className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-colors ${isScrolled ? 'bg-[#ff5500] text-white hover:bg-[#e64d00]' : 'bg-white text-black hover:bg-neutral-200'}`}>
+              <Link href="/#contact" className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-colors bg-[#ff5500] text-white hover:bg-[#e64d00]`}>
                 Hubungi Saya
               </Link>
             </div>
