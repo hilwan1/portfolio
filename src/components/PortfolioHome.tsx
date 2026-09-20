@@ -387,7 +387,7 @@ const AboutMe = () => {
 
 const Stats = () => {
   const statsData = [
-    { label: "Projects Completed", value: 13, suffix: "+" },
+    { label: "Projects Completed", value: 17, suffix: "+" },
     { label: "Happy Clients", value: 6, suffix: "+" },
     { label: "Years Experience", value: 1, suffix: "+" },
     { label: "Lighthouse Score", value: 99, suffix: "+" },
