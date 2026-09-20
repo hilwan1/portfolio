@@ -36,13 +36,65 @@ export const categoryMeta: Record<ProjectCategory, { label: string; icon: string
 
 export const projects: Project[] = [
   {
+    id: 16,
+    title: 'Plagiasi Turnitin Orderqu.id',
+    description: 'Sistem informasi pengecekan plagiat yang terintegrasi dengan API Turnitin, memungkinkan pengguna untuk memeriksa kesamaan dokumen dengan database Turnitin secara real-time.',
+    category: 'fullstack',
+    image: '/web/orderqu.webp',
+    gallery: [
+      '/web/orderqu.webp'
+    ],
+    tags: ['Laravel 12', 'PHP', 'MySQL', 'Tailwind', 'Payment Gateway'],
+    year: 2026,
+    featured: true,
+  },
+  {
+    id: 15,
+    title: 'Job Portal Nextalent.AI',
+    description: 'Job Portal Nextalent.AI adalah platform yang menyediakan informasi lowongan pekerjaan.',
+    category: 'fullstack',
+    image: '/web/nextalent.webp',
+    gallery: [
+      '/web/nextalent.webp'
+    ],
+    tags: ['Laravel 12', 'PHP', 'MySQL', 'Tailwind'],
+    year: 2026,
+    featured: true,
+  },
+  {
+    id: 14,
+    title: 'Dashboard e-Member HUB',
+    description: 'Dashboard e-Member HUB adalah sebuah dashboard yang digunakan untuk memantau dan mengelola data member.',
+    category: 'fullstack',
+    image: '/web/emember.webp',
+    gallery: [
+      '/web/emember.webp'
+    ],
+    tags: ['Laravel 12', 'PHP', 'MySQL', 'Tailwind'],
+    year: 2026,
+    featured: true,
+  },
+  {
+    id: 13,
+    title: 'Landing Page SMK Mahardhika',
+    description: 'Landing Page SMK Mahardhika adalah website resmi sekolah yang menampilkan informasi lengkap mengenai profil sekolah, jurusan yang tersedia, kegiatan akademik dan ekstrakurikuler, serta informasi pendaftaran siswa baru dengan tampilan modern dan responsif.',
+    category: 'frontend',
+    image: '/web/mahardika.webp',
+    gallery: [
+      '/web/mahardika.webp'
+    ],
+    tags: ['NextJS', 'Tailwind', 'Typescript'],
+    year: 2026,
+    featured: true,
+  },
+  {
     id: 12,
     title: 'Penerbit Berkisah',
     description: 'Penerbit Berkisah merupakan penerbit mayor yang menerbitkan buku-buku berkualitas bagi pembaca anak-anak, remaja, hingga dewasa. ',
     category: 'fullstack',
-    image: '/web/penerbitberkisah.jpg',
+    image: '/web/penerbitberkisah.webp',
     gallery: [
-      '/web/penerbitberkisah.jpg'
+      '/web/penerbitberkisah.webp'
     ],
     tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP'],
     year: 2026,
@@ -54,9 +106,9 @@ export const projects: Project[] = [
     title: 'Abadi Rent',
     description: 'Sistem informasi persewaan mobil (car rental) berbasis web yang terintegrasi dengan manajemen inventaris armada kendaraan, perhitungan harga otomatis, dan sistem invoicing untuk mempercepat proses administrasi.',
     category: 'fullstack',
-    image: '/web/abadirent.jpg',
+    image: '/web/abadirent.webp',
     gallery: [
-      '/web/abadirent.jpg'
+      '/web/abadirent.webp'
     ],
     tags: ['Next JS', 'PostgreSQL', 'Tailwind', 'Typescript', 'Invoicing System'],
     year: 2026,
