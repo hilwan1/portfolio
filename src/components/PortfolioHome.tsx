@@ -278,8 +278,8 @@ const Hero = () => {
                 </div>
 
                 <a
-                  href="/CV-ATS-Mohammad-Hilwan.pdf"
-                  download="CV-ATS-Mohammad-Hilwan.pdf"
+                  href="/CV-ATS-2026-Mohammad-Hilwan.pdf"
+                  download="CV-ATS-2026-Mohammad-Hilwan.pdf"
                   className="min-h-[52px] px-6 py-3.5 rounded-2xl border border-white/15 bg-white/[0.04] hover:bg-white/[0.09] text-white text-sm sm:text-base font-semibold inline-flex items-center justify-center gap-2.5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff5500]"
                 >
                   <Download className="w-4 h-4 text-[#ff7733]" />
@@ -402,9 +402,8 @@ const AboutMe = () => {
               key={idx}
               data-line-word
               style={{ opacity: 0, transform: 'translateY(16px)' }}
-              className={`inline-block mr-[0.28em] transition-[opacity,transform] duration-100 ease-out will-change-[opacity,transform] ${
-                item.highlight ? 'uppercase text-[#c23b00]' : ''
-              }`}
+              className={`inline-block mr-[0.28em] transition-[opacity,transform] duration-100 ease-out will-change-[opacity,transform] ${item.highlight ? 'uppercase text-[#c23b00]' : ''
+                }`}
             >
               {item.word}
             </span>
