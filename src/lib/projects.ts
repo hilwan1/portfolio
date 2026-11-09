@@ -36,6 +36,20 @@ export const categoryMeta: Record<ProjectCategory, { label: string; icon: string
 
 export const projects: Project[] = [
   {
+    id: 17,
+    title: 'Rental Pacar',
+    description: 'Website Rental Pacar adalah sebuah platform untuk menyewa pacar virtual untuk mengisi kekosongan hati para jomblo.',
+    category: 'fullstack',
+    image: '/web/rentalpacar.png',
+    gallery: [
+      '/web/rentalpacar.png'
+    ],
+    tags: ['Laravel 12', 'PHP', 'MySQL', 'Tailwind', 'Payment Gateway'],
+    year: 2026,
+    featured: true,
+    link: 'https://rentalpacar.my.id',
+  },
+  {
     id: 16,
     title: 'Plagiasi Turnitin Orderqu.id',
     description: 'Sistem informasi pengecekan plagiat yang terintegrasi dengan API Turnitin, memungkinkan pengguna untuk memeriksa kesamaan dokumen dengan database Turnitin secara real-time.',
@@ -47,6 +61,7 @@ export const projects: Project[] = [
     tags: ['Laravel 12', 'PHP', 'MySQL', 'Tailwind', 'Payment Gateway'],
     year: 2026,
     featured: true,
+    link: 'https://orderqu.id',
   },
   {
     id: 15,
