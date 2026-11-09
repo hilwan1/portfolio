@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { projects } from '@/lib/projects';
 import ProjectCard from '@/components/ProjectCard';
+import { BackgroundPaths, AnimatedTitle } from '@/components/ui/background-paths';
+import { Button } from '@/components/ui/button';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -220,133 +222,154 @@ const TESTIMONIALS = [
   }
 ];
 
+const FOCUS_AREAS = [
+  { id: '#01', label: 'Web Development' },
+  { id: '#02', label: 'Back-end & Database' },
+  { id: '#03', label: 'Integrasi API' },
+  { id: '#04', label: 'Arsitektur Skalabel' },
+];
+
+const CORE_STACK = [
+  { icon: LayoutTemplate, name: 'Laravel' },
+  { icon: Code2, name: 'Node.js' },
+  { icon: Server, name: 'Next.js' },
+  { icon: MonitorSmartphone, name: 'React' },
+];
+
 const Hero = () => {
   return (
-    <>
-      <section className="w-full bg-[#0a0a0a] p-0 md:p-6 lg:p-8 pb-3 md:pb-0 min-h-[100dvh] md:h-screen box-border md:overflow-hidden flex flex-col justify-start md:justify-center">
-        <FadeIn className="w-full h-full flex flex-col justify-start md:justify-center">
-          {/* Boxed container on desktop, full-width extending below chat bubble on mobile */}
-          <div className="relative w-full min-h-[calc(100dvh-0.75rem)] md:min-h-0 md:h-full rounded-t-none md:rounded-t-[2rem] rounded-b-[2.5rem] md:rounded-b-[2rem] bg-gradient-to-br from-[#ff7700] via-[#e63900] to-[#cc2200] overflow-hidden flex flex-col justify-between pt-18 sm:pt-22 md:pt-32 pb-6 sm:pb-8 md:pb-12 px-5 sm:px-6 md:px-12 lg:px-20">
-
-            {/* Background Photo with Blur/Gradient Effect */}
-            <div className="absolute top-[48%] sm:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px] sm:max-w-[750px] aspect-square pointer-events-none z-0">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#cc2200]/80 via-transparent to-transparent z-10 rounded-full"></div>
-              <Image
-                src="/foto-gue.png"
-                alt="Background Silhouette"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 750px"
-                className="object-cover object-top opacity-70 mix-blend-overlay blur-[1px] rounded-full"
+    <section aria-label="Perkenalan Utama" className="w-full bg-[#0a0a0a]">
+      <BackgroundPaths title="Full-Stack Web Developer">
+        <div className="max-w-[1360px] mx-auto w-full px-5 sm:px-8 md:px-12 pt-24 sm:pt-28 md:pt-36 pb-8 sm:pb-12 flex-1 flex flex-col justify-between gap-12">
+          {/* Editorial Main Stage */}
+          <div className="my-auto w-full grid grid-cols-1 lg:grid-cols-12 items-start lg:items-end gap-8 lg:gap-12">
+            <div className="lg:col-span-7 xl:col-span-8">
+              <p className="font-mono text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-neutral-300 mb-3 sm:mb-5">
+                Halo, Saya Mohammad Hilwan<span className="text-[#ff5500]">.</span>
+              </p>
+              <AnimatedTitle
+                title="Full-Stack Web Developer"
+                className="text-[2.5rem] sm:text-6xl md:text-7xl xl:text-[5.5rem] font-bold tracking-tighter leading-[0.95]"
               />
             </div>
 
-            <div className="flex-1 w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 sm:gap-8 lg:gap-24 relative z-10 my-auto">
-              {/* Top Left Name Intro & Tagline (Pushed Higher Up on Mobile) */}
-              <div className="pt-2 sm:pt-4 md:pt-0 flex-1">
-                <div className="mb-3 sm:mb-4 md:mb-12">
-                  <p className="text-white/80 font-medium tracking-wide uppercase text-xs sm:text-sm mb-1 sm:mb-2">Halo, Saya</p>
-                  <h1 className="text-2xl sm:text-3xl md:text-3xl font-bold text-white tracking-tight">Mohammad Hilwan<span className="text-[#ffaa00]">.</span></h1>
+            <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-6 lg:pb-1">
+              <p className="text-neutral-300 text-base sm:text-lg leading-relaxed">
+                Merancang dan membangun aplikasi web, sistem informasi manajemen, serta integrasi API yang terukur dengan Laravel, CodeIgniter, dan Next.js.
+              </p>
+
+              <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-stretch sm:items-center gap-3">
+                <div className="group relative bg-gradient-to-b from-[#ff5500]/60 to-white/15 p-px rounded-2xl overflow-hidden shadow-lg">
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="w-full sm:w-auto min-h-[52px] rounded-[calc(1rem-1px)] px-7 py-3.5 text-sm sm:text-base font-bold bg-[#141414] hover:bg-[#1c1c1c] text-white transition-all duration-300"
+                  >
+                    <a href="#projects">
+                      <span>Lihat Karya Pilihan</span>
+                      <span
+                        aria-hidden="true"
+                        className="ml-2.5 text-[#ff7733] group-hover:translate-x-1 transition-transform duration-300"
+                      >
+                        →
+                      </span>
+                    </a>
+                  </Button>
                 </div>
 
-                <div>
-                  <h2 className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[7rem] font-bold text-white tracking-tighter leading-[0.95] sm:leading-[0.9]">
-                    Full-Stack <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">Developer</span>
-                  </h2>
-                </div>
-              </div>
-
-              {/* Right Side Description & Buttons (Side-by-side on desktop, pushed down on mobile) */}
-              <div className="w-full lg:w-[400px] flex flex-col gap-3 sm:gap-6 md:gap-8 mt-12 sm:mt-16 lg:mt-0">
-                <p className="text-white/80 text-sm sm:text-lg md:text-xl font-medium leading-snug">
-                  Let's collaborate to build something great.
-                </p>
-                <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-4">
-                  <a href="#projects" className="bg-white text-black px-5 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-bold hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2 group">
-                    Lihat Proyek <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <a href="/CV-ATS-Mohammad-Hilwan.pdf" download="CV-ATS-Mohammad-Hilwan.pdf" className="bg-transparent border border-white/30 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-bold hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
-                    <Download className="w-4 h-4" /> Download CV
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Columns (Services/Focus Area) inside Hero */}
-            <div className="w-full max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-12 mt-6 sm:mt-10 md:mt-16 border-t border-white/10 pt-4 sm:pt-6 md:pt-8 z-10">
-              <div>
-                <p className="text-[#ffaa00] text-[10px] sm:text-xs font-bold mb-1 sm:mb-2 tracking-widest">#01</p>
-                <p className="text-white/90 text-xs sm:text-sm font-medium">Web Development</p>
-              </div>
-              <div>
-                <p className="text-[#ffaa00] text-[10px] sm:text-xs font-bold mb-1 sm:mb-2 tracking-widest">#02</p>
-                <p className="text-white/90 text-sm font-medium">Back-end &amp; Database</p>
-              </div>
-              <div>
-                <p className="text-[#ffaa00] text-[10px] sm:text-xs font-bold mb-1 sm:mb-2 tracking-widest">#03</p>
-                <p className="text-white/90 text-xs sm:text-sm font-medium">Integrasi API</p>
-              </div>
-              <div>
-                <p className="text-[#ffaa00] text-[10px] sm:text-xs font-bold mb-1 sm:mb-2 tracking-widest">#04</p>
-                <p className="text-white/90 text-xs sm:text-sm font-medium">Arsitektur Skalabel</p>
+                <a
+                  href="/CV-ATS-Mohammad-Hilwan.pdf"
+                  download="CV-ATS-Mohammad-Hilwan.pdf"
+                  className="min-h-[52px] px-6 py-3.5 rounded-2xl border border-white/15 bg-white/[0.04] hover:bg-white/[0.09] text-white text-sm sm:text-base font-semibold inline-flex items-center justify-center gap-2.5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff5500]"
+                >
+                  <Download className="w-4 h-4 text-[#ff7733]" />
+                  <span>CV</span>
+                </a>
               </div>
             </div>
           </div>
-        </FadeIn>
-      </section>
 
-      {/* Tech Stack Strip - separate section below hero */}
-      <section className="w-full bg-[#0a0a0a]">
-        <FadeIn delay={300}>
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
-            <p className="text-neutral-400 text-xs md:text-sm font-medium uppercase tracking-wider text-center md:text-left">
-              Teknologi Pilihan <br className="hidden md:block" />Dalam Membangun Sistem
-            </p>
-            <div className="flex flex-wrap items-center justify-center md:justify-end gap-8 md:gap-14">
-              <span className="text-white font-bold text-lg flex items-center gap-2"><LayoutTemplate className="w-5 h-5 text-white" /> Laravel</span>
-              <span className="text-white font-bold text-lg flex items-center gap-2"><Code2 className="w-5 h-5 text-white" /> Node.js</span>
-              <span className="text-white font-bold text-lg flex items-center gap-2"><Server className="w-5 h-5 text-white" /> Next.js</span>
-              <span className="text-white font-bold text-lg flex items-center gap-2"><LayoutTemplate className="w-5 h-5 text-white" /> React</span>
+          {/* Bottom Discipline & Stack Bar */}
+          <div className="w-full border-t border-white/10 pt-6 sm:pt-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 flex-1">
+              {FOCUS_AREAS.map((area) => (
+                <div key={area.id}>
+                  <p className="font-mono text-[#ff7733] text-xs font-bold mb-1 tracking-widest">
+                    {area.id}
+                  </p>
+                  <p className="text-neutral-200 text-xs sm:text-sm font-medium">
+                    {area.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-4 lg:pt-0 border-t lg:border-t-0 lg:border-l border-white/10 lg:pl-8">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-neutral-400 w-full sm:w-auto">
+                Stack Utama:
+              </span>
+              {CORE_STACK.map((tech) => (
+                <span
+                  key={tech.name}
+                  className="text-neutral-200 font-semibold text-sm flex items-center gap-2"
+                >
+                  <tech.icon className="w-4 h-4 text-[#ff7733]" />
+                  {tech.name}
+                </span>
+              ))}
             </div>
           </div>
-        </FadeIn>
-      </section>
-    </>
+        </div>
+      </BackgroundPaths>
+    </section>
   );
 };
 
+const ABOUT_SEGMENTS: { text: string; highlight?: boolean }[] = [
+  { text: "Hello! I'm Mohammad Hilwan, a Fresh Graduate with a Diploma Degree (D3) in" },
+  { text: "Informatics Engineering", highlight: true },
+  { text: "from Universitas Logistik dan Bisnis Internasional, graduating with a Very Satisfactory distinction. I have experience in" },
+  { text: "Full-Stack Web Development", highlight: true },
+  { text: "and" },
+  { text: "UI/UX Design,", highlight: true },
+  { text: "particularly in designing and developing intuitive, responsive, and user-friendly web applications using user-centered design and design thinking approaches." },
+];
+
+const ABOUT_WORDS = ABOUT_SEGMENTS.flatMap((seg) =>
+  seg.text.split(' ').map((word) => ({ word, highlight: seg.highlight }))
+);
+
 const AboutMe = () => {
-  const textRef = useRef<HTMLParagraphElement>(null);
-  const [opacity, setOpacity] = useState(0);
+  const pRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!textRef.current) return;
-      const rect = textRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+    const updateLines = () => {
+      const container = pRef.current;
+      if (!container) return;
 
-      // Start fading in when the element's top passes 85% of viewport height from the top.
-      // Be fully visible (opacity = 1) when the element's top reaches 40% of viewport height.
-      const start = windowHeight * 0.85;
-      const end = windowHeight * 0.40;
+      const pTop = container.getBoundingClientRect().top;
+      const vh = window.innerHeight;
+      const start = vh * 0.88;
+      const end = vh * 0.68;
+      const range = start - end;
 
-      let currentOpacity = 0;
-      if (rect.top < start) {
-        currentOpacity = (start - rect.top) / (start - end);
-      }
-
-      currentOpacity = Math.max(0, Math.min(1, currentOpacity));
-      setOpacity(currentOpacity);
+      const spans = container.querySelectorAll<HTMLSpanElement>('[data-line-word]');
+      spans.forEach((span) => {
+        // Words on the same rendered line share the exact same offsetTop
+        const lineTop = pTop + span.offsetTop;
+        const progress = Math.max(0, Math.min(1, (start - lineTop) / range));
+        span.style.opacity = String(progress);
+        span.style.transform = `translateY(${(1 - progress) * 16}px)`;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
-    handleScroll(); // Initial run
+    window.addEventListener('scroll', updateLines, { passive: true });
+    window.addEventListener('resize', updateLines, { passive: true });
+    updateLines();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener('scroll', updateLines);
+      window.removeEventListener('resize', updateLines);
     };
   }, []);
 
@@ -354,7 +377,7 @@ const AboutMe = () => {
     <section id="about" className="py-24 md:py-32 px-6 w-full bg-white text-black flex items-center justify-center">
       <div className="max-w-5xl mx-auto text-center">
         <FadeIn>
-          <div className="flex flex-col items-center gap-4 mb-10">
+          <div className="flex flex-col items-center gap-4 mb-12">
             <p className="text-sm font-bold tracking-widest uppercase text-neutral-600">Let's Connect</p>
             <div className="flex items-center gap-4">
               <a href="https://instagram.com/mohhilwan" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-[#ff5500] hover:border-[#ff5500] hover:text-white transition-all text-neutral-600" aria-label="Instagram">
@@ -371,14 +394,21 @@ const AboutMe = () => {
         </FadeIn>
 
         <p
-          ref={textRef}
-          className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold leading-relaxed md:leading-[1.4] tracking-tight text-black transition-all duration-500 ease-out"
-          style={{
-            opacity: opacity,
-            transform: `translateY(${(1 - opacity) * 15}px)`,
-          }}
+          ref={pRef}
+          className="relative text-2xl md:text-3xl lg:text-[2.5rem] font-bold leading-relaxed md:leading-[1.4] tracking-tight text-black"
         >
-          👋 Hello! I'm Mohammad Hilwan, —— a Fresh Graduate with a Diploma Degree (D3) in <span className="uppercase text-[#ff5500]">Informatics Engineering</span> from Universitas Logistik dan Bisnis Internasional, graduating with a Very Satisfactory distinction. I have experience in <span className="uppercase text-[#ff5500]">Full-Stack Web Development</span> and <span className="uppercase text-[#ff5500]">UI/UX Design</span>, particularly in designing and developing intuitive, responsive, and user-friendly web applications using user-centered design and design thinking approaches.
+          {ABOUT_WORDS.map((item, idx) => (
+            <span
+              key={idx}
+              data-line-word
+              style={{ opacity: 0, transform: 'translateY(16px)' }}
+              className={`inline-block mr-[0.28em] transition-[opacity,transform] duration-100 ease-out will-change-[opacity,transform] ${
+                item.highlight ? 'uppercase text-[#c23b00]' : ''
+              }`}
+            >
+              {item.word}
+            </span>
+          ))}
         </p>
       </div>
     </section>
